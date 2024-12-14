@@ -1,13 +1,8 @@
 package com.gmail.nossr50.util;
 
 import com.gmail.nossr50.mcMMO;
-import org.bukkit.NamespacedKey;
 import org.bukkit.Registry;
 import org.bukkit.enchantments.Enchantment;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.Locale;
 
 public class EnchantmentMapper {
     private final mcMMO pluginRef;
@@ -25,25 +20,11 @@ public class EnchantmentMapper {
         this.featherFalling = initFeatherFalling();
         this.luckOfTheSea = initLuckOfTheSea();
     }
-    
-    private static @Nullable Enchantment mockSpigotMatch(@NotNull String input) {
-        // Replicates match() behaviour for older versions lacking this API
-        final String filtered = input.toLowerCase(Locale.ROOT).replaceAll("\\s+", "_");
-        final NamespacedKey namespacedKey = NamespacedKey.fromString(filtered);
-        return (namespacedKey != null) ? Registry.ENCHANTMENT.get(namespacedKey) : null;
-    }
 
     private Enchantment initLuckOfTheSea() {
-        if (mockSpigotMatch("luck_of_the_sea") != null) {
-            return mockSpigotMatch("luck_of_the_sea");
-        }
-
         // Look for the enchantment by name
         for (Enchantment enchantment : Registry.ENCHANTMENT) {
-            if (enchantment.getKey().getKey().equalsIgnoreCase("LUCK_OF_THE_SEA")
-                    || enchantment.getKey().getKey().equalsIgnoreCase("LUCK")
-                    || enchantment.getName().equalsIgnoreCase("LUCK_OF_THE_SEA")
-                    || enchantment.getName().equalsIgnoreCase("LUCK")) {
+            if (enchantment.getKey().toString().equalsIgnoreCase("minecraft:luck_of_the_sea") || enchantment.getKey().toString().equalsIgnoreCase("minecraft:luck")) {
                 return enchantment;
             }
         }
@@ -54,16 +35,10 @@ public class EnchantmentMapper {
     }
 
     private Enchantment initFeatherFalling() {
-        if (mockSpigotMatch("feather_falling") != null) {
-            return mockSpigotMatch("feather_falling");
-        }
 
         // Look for the enchantment by name
         for (Enchantment enchantment : Registry.ENCHANTMENT) {
-            if (enchantment.getKey().getKey().equalsIgnoreCase("FEATHER_FALLING")
-                    || enchantment.getKey().getKey().equalsIgnoreCase("PROTECTION_FALL")
-                    || enchantment.getName().equalsIgnoreCase("FEATHER_FALLING")
-                    || enchantment.getName().equalsIgnoreCase("PROTECTION_FALL")) {
+            if (enchantment.getKey().toString().equalsIgnoreCase("minecraft:feather_falling") || enchantment.getKey().toString().equalsIgnoreCase("minecraft:protection_fall")) {
                 return enchantment;
             }
         }
@@ -74,16 +49,9 @@ public class EnchantmentMapper {
     }
 
     private Enchantment initInfinity() {
-        if (mockSpigotMatch("infinity") != null) {
-            return mockSpigotMatch("infinity");
-        }
-
         // Look for the enchantment by name
         for (Enchantment enchantment : Registry.ENCHANTMENT) {
-            if (enchantment.getKey().getKey().equalsIgnoreCase("INFINITY")
-                    || enchantment.getKey().getKey().equalsIgnoreCase("ARROW_INFINITE")
-                    || enchantment.getName().equalsIgnoreCase("INFINITY")
-                    || enchantment.getName().equalsIgnoreCase("ARROW_INFINITE")) {
+            if (enchantment.getKey().toString().equalsIgnoreCase("minecraft:infinity") || enchantment.getKey().toString().equalsIgnoreCase("minecraft:arrow_infinite")) {
                 return enchantment;
             }
         }
@@ -94,16 +62,9 @@ public class EnchantmentMapper {
     }
 
     private Enchantment initEfficiency() {
-        if (mockSpigotMatch("efficiency") != null) {
-            return mockSpigotMatch("efficiency");
-        }
-
         // Look for the enchantment by name
         for (Enchantment enchantment : Registry.ENCHANTMENT) {
-            if (enchantment.getKey().getKey().equalsIgnoreCase("EFFICIENCY")
-                    || enchantment.getKey().getKey().equalsIgnoreCase("DIG_SPEED")
-                    || enchantment.getName().equalsIgnoreCase("EFFICIENCY")
-                    || enchantment.getName().equalsIgnoreCase("DIG_SPEED")) {
+            if (enchantment.getKey().toString().equalsIgnoreCase("minecraft:efficiency") || enchantment.getKey().toString().equalsIgnoreCase("minecraft:dig_speed")) {
                 return enchantment;
             }
         }
@@ -114,16 +75,9 @@ public class EnchantmentMapper {
     }
 
     private Enchantment initUnbreaking() {
-        if (mockSpigotMatch("unbreaking") != null) {
-            return mockSpigotMatch("unbreaking");
-        }
-
         // Look for the enchantment by name
         for (Enchantment enchantment : Registry.ENCHANTMENT) {
-            if (enchantment.getKey().getKey().equalsIgnoreCase("UNBREAKING")
-                    || enchantment.getKey().getKey().equalsIgnoreCase("DURABILITY")
-                    || enchantment.getName().equalsIgnoreCase("UNBREAKING")
-                    || enchantment.getName().equalsIgnoreCase("DURABILITY")) {
+            if (enchantment.getKey().toString().equalsIgnoreCase("minecraft:unbreaking") || enchantment.getKey().toString().equalsIgnoreCase("minecraft:durability")) {
                 return enchantment;
             }
         }

@@ -68,12 +68,12 @@ public class AttributeMapper {
                         String attrKey = null;
                         String attrName = null;
 
-                        // Try to get attr.getKey().getKey()
+                        // Try to get attr.getKey().toString()
                         Method getKeyMethod = attr.getClass().getMethod("getKey");
                         Object namespacedKey = getKeyMethod.invoke(attr);
 
                         if (namespacedKey != null) {
-                            Method getKeyStringMethod = namespacedKey.getClass().getMethod("getKey");
+                            Method getKeyStringMethod = namespacedKey.getClass().getMethod("toString");
                             attrKey = (String) getKeyStringMethod.invoke(namespacedKey);
                         }
 

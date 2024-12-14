@@ -86,7 +86,7 @@ public final class ItemUtils {
      */
     // TODO: Unit tests
     public static boolean isBow(@NotNull ItemStack item) {
-        return mcMMO.getMaterialMapStore().isBow(item.getType().getKey().getKey());
+        return mcMMO.getMaterialMapStore().isBow(item.getType().getKey().toString());
     }
 
     /**
@@ -167,16 +167,16 @@ public final class ItemUtils {
 
     // TODO: Unit tests
     public static boolean isCrossbow(@NotNull ItemStack item) {
-        return mcMMO.getMaterialMapStore().isCrossbow(item.getType().getKey().getKey());
+        return mcMMO.getMaterialMapStore().isCrossbow(item.getType().getKey().toString());
     }
 
     // TODO: Unit tests
     public static boolean isTrident(@NotNull ItemStack item) {
-        return mcMMO.getMaterialMapStore().isTrident(item.getType().getKey().getKey());
+        return mcMMO.getMaterialMapStore().isTrident(item.getType().getKey().toString());
     }
 
     public static boolean isMace(@NotNull ItemStack item) {
-        return mcMMO.getMaterialMapStore().isMace(item.getType().getKey().getKey());
+        return mcMMO.getMaterialMapStore().isMace(item.getType().getKey().toString());
     }
 
     public static boolean hasItemInEitherHand(@NotNull Player player, Material material) {
@@ -256,7 +256,7 @@ public final class ItemUtils {
 
     public static @Nullable Enchantment getEnchantment(@NotNull String enchantmentName) {
         for (Enchantment enchantment : Enchantment.values()) {
-            if (enchantment.getKey().getKey().equalsIgnoreCase(enchantmentName)) {
+            if (enchantment.getKey().toString().equalsIgnoreCase(enchantmentName)) {
                 return enchantment;
             }
         }
@@ -271,7 +271,7 @@ public final class ItemUtils {
      * @return true if the item is a sword, false otherwise
      */
     public static boolean isSword(@NotNull ItemStack item) {
-        return mcMMO.getMaterialMapStore().isSword(item.getType().getKey().getKey());
+        return mcMMO.getMaterialMapStore().isSword(item.getType().getKey().toString());
     }
 
     /**
@@ -281,7 +281,7 @@ public final class ItemUtils {
      * @return true if the item is a hoe, false otherwise
      */
     public static boolean isHoe(@NotNull ItemStack item) {
-        return mcMMO.getMaterialMapStore().isHoe(item.getType().getKey().getKey());
+        return mcMMO.getMaterialMapStore().isHoe(item.getType().getKey().toString());
     }
 
     /**
@@ -291,7 +291,7 @@ public final class ItemUtils {
      * @return true if the item is a shovel, false otherwise
      */
     public static boolean isShovel(@NotNull ItemStack item) {
-        return mcMMO.getMaterialMapStore().isShovel(item.getType().getKey().getKey());
+        return mcMMO.getMaterialMapStore().isShovel(item.getType().getKey().toString());
     }
 
     /**
@@ -301,7 +301,7 @@ public final class ItemUtils {
      * @return true if the item is an axe, false otherwise
      */
     public static boolean isAxe(@NotNull ItemStack item) {
-        return mcMMO.getMaterialMapStore().isAxe(item.getType().getKey().getKey());
+        return mcMMO.getMaterialMapStore().isAxe(item.getType().getKey().toString());
     }
 
     /**
@@ -311,7 +311,7 @@ public final class ItemUtils {
      * @return true if the item is a pickaxe, false otherwise
      */
     public static boolean isPickaxe(@NotNull ItemStack item) {
-        return mcMMO.getMaterialMapStore().isPickAxe(item.getType().getKey().getKey());
+        return mcMMO.getMaterialMapStore().isPickAxe(item.getType().getKey().toString());
     }
 
     /**
@@ -355,7 +355,7 @@ public final class ItemUtils {
      * @return true if the item is gold armor, false otherwise
      */
     public static boolean isGoldArmor(ItemStack item) {
-        return mcMMO.getMaterialMapStore().isGoldArmor(item.getType().getKey().getKey());
+        return mcMMO.getMaterialMapStore().isGoldArmor(item.getType().getKey().toString());
     }
 
     /**
@@ -365,7 +365,7 @@ public final class ItemUtils {
      * @return true if the item is iron armor, false otherwise
      */
     public static boolean isIronArmor(ItemStack item) {
-        return mcMMO.getMaterialMapStore().isIronArmor(item.getType().getKey().getKey());
+        return mcMMO.getMaterialMapStore().isIronArmor(item.getType().getKey().toString());
     }
 
     /**
@@ -375,15 +375,15 @@ public final class ItemUtils {
      * @return true if the item is diamond armor, false otherwise
      */
     public static boolean isDiamondArmor(ItemStack item) {
-        return mcMMO.getMaterialMapStore().isDiamondArmor(item.getType().getKey().getKey());
+        return mcMMO.getMaterialMapStore().isDiamondArmor(item.getType().getKey().toString());
     }
 
     public static boolean isNetheriteArmor(ItemStack itemStack) {
-        return mcMMO.getMaterialMapStore().isNetheriteArmor(itemStack.getType().getKey().getKey());
+        return mcMMO.getMaterialMapStore().isNetheriteArmor(itemStack.getType().getKey().toString());
     }
 
     public static boolean isNetheriteTool(ItemStack itemStack) {
-        return mcMMO.getMaterialMapStore().isNetheriteTool(itemStack.getType().getKey().getKey());
+        return mcMMO.getMaterialMapStore().isNetheriteTool(itemStack.getType().getKey().toString());
     }
 
     /**
@@ -393,7 +393,7 @@ public final class ItemUtils {
      * @return true if the item is chainmail armor, false otherwise
      */
     public static boolean isChainmailArmor(ItemStack item) {
-        return mcMMO.getMaterialMapStore().isChainmailArmor(item.getType().getKey().getKey());
+        return mcMMO.getMaterialMapStore().isChainmailArmor(item.getType().getKey().toString());
     }
 
     /**
@@ -403,7 +403,7 @@ public final class ItemUtils {
      * @return true if the item is a tool, false otherwise
      */
     public static boolean isMinecraftTool(ItemStack item) {
-        return mcMMO.getMaterialMapStore().isTool(item.getType().getKey().getKey());
+        return mcMMO.getMaterialMapStore().isTool(item.getType().getKey().toString());
     }
 
     /**
@@ -413,7 +413,7 @@ public final class ItemUtils {
      * @return true if the item is a stone tool, false otherwise
      */
     public static boolean isStoneTool(ItemStack item) {
-        return mcMMO.getMaterialMapStore().isStoneTool(item.getType().getKey().getKey());
+        return mcMMO.getMaterialMapStore().isStoneTool(item.getType().getKey().toString());
     }
 
     /**
@@ -423,7 +423,7 @@ public final class ItemUtils {
      * @return true if the item is a wooden tool, false otherwise
      */
     public static boolean isWoodTool(ItemStack item) {
-        return mcMMO.getMaterialMapStore().isWoodTool(item.getType().getKey().getKey());
+        return mcMMO.getMaterialMapStore().isWoodTool(item.getType().getKey().toString());
     }
 
     /**
@@ -433,7 +433,7 @@ public final class ItemUtils {
      * @return true if the item is a string tool, false otherwise
      */
     public static boolean isStringTool(ItemStack item) {
-        return mcMMO.getMaterialMapStore().isStringTool(item.getType().getKey().getKey());
+        return mcMMO.getMaterialMapStore().isStringTool(item.getType().getKey().toString());
     }
 
     /**
@@ -443,7 +443,7 @@ public final class ItemUtils {
      * @return true if the item is a stone tool, false otherwise
      */
     public static boolean isGoldTool(ItemStack item) {
-        return mcMMO.getMaterialMapStore().isGoldTool(item.getType().getKey().getKey());
+        return mcMMO.getMaterialMapStore().isGoldTool(item.getType().getKey().toString());
     }
 
     /**
@@ -453,7 +453,7 @@ public final class ItemUtils {
      * @return true if the item is an iron tool, false otherwise
      */
     public static boolean isIronTool(ItemStack item) {
-        return mcMMO.getMaterialMapStore().isIronTool(item.getType().getKey().getKey());
+        return mcMMO.getMaterialMapStore().isIronTool(item.getType().getKey().toString());
     }
 
     /**
@@ -463,7 +463,7 @@ public final class ItemUtils {
      * @return true if the item is a diamond tool, false otherwise
      */
     public static boolean isDiamondTool(ItemStack item) {
-        return mcMMO.getMaterialMapStore().isDiamondTool(item.getType().getKey().getKey());
+        return mcMMO.getMaterialMapStore().isDiamondTool(item.getType().getKey().toString());
     }
 
     /**
@@ -473,7 +473,7 @@ public final class ItemUtils {
      * @return true if the item is enchantable, false otherwise
      */
     public static boolean isEnchantable(ItemStack item) {
-        return mcMMO.getMaterialMapStore().isEnchantable(item.getType().getKey().getKey());
+        return mcMMO.getMaterialMapStore().isEnchantable(item.getType().getKey().toString());
     }
 
     public static boolean isSmeltable(ItemStack item) {
@@ -538,11 +538,11 @@ public final class ItemUtils {
      */
     public static boolean isHerbalismDrop(ItemStack item) {
         //TODO: 1.14 This needs to be updated
-        return switch (item.getType().getKey().getKey().toLowerCase()) {
-            case "wheat", "wheat_seeds", "carrot", "chorus_fruit", "chorus_flower", "potato", "beetroot", "beetroots",
-                 "beetroot_seeds", "nether_wart", "brown_mushroom", "red_mushroom", "rose_bush", "dandelion", "cactus",
-                 "sugar_cane", "melon", "melon_seeds", "pumpkin", "pumpkin_seeds", "lily_pad", "vine", "tall_grass",
-                 "cocoa_beans" -> true;
+        return switch (item.getType().getKey().toString().toLowerCase()) {
+            case "minecraft:wheat", "minecraft:wheat_seeds", "minecraft:carrot", "minecraft:chorus_fruit", "minecraft:chorus_flower", "minecraft:potato", "minecraft:beetroot", "minecraft:beetroots",
+                 "minecraft:beetroot_seeds", "minecraft:nether_wart", "minecraft:brown_mushroom", "minecraft:red_mushroom", "minecraft:rose_bush", "minecraft:dandelion", "minecraft:cactus",
+                 "minecraft:sugar_cane", "minecraft:melon", "minecraft:melon_seeds", "minecraft:pumpkin", "minecraft:pumpkin_seeds", "minecraft:lily_pad", "minecraft:vine", "minecraft:tall_grass",
+                 "minecraft:cocoa_beans" -> true;
             default -> false;
         };
     }

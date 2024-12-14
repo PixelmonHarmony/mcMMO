@@ -133,39 +133,39 @@ public class MaterialMapStore {
     }
 
     public boolean isMultiBlockPlant(@NotNull Material material) {
-        return multiBlockPlant.contains(material.getKey().getKey());
+        return multiBlockPlant.contains(material.getKey().toString());
     }
 
     public boolean isMultiBlockHangingPlant(@NotNull Material material) {
-        return multiBlockHangingPlant.contains(material.getKey().getKey());
+        return multiBlockHangingPlant.contains(material.getKey().toString());
     }
 
     public boolean isAbilityActivationBlackListed(@NotNull Material material) {
-        return abilityBlackList.contains(material.getKey().getKey());
+        return abilityBlackList.contains(material.getKey().toString());
     }
 
     public boolean isToolActivationBlackListed(@NotNull Material material) {
-        return toolBlackList.contains(material.getKey().getKey());
+        return toolBlackList.contains(material.getKey().toString());
     }
 
     public boolean isMossyWhiteListed(@NotNull Material material) {
-        return mossyWhiteList.contains(material.getKey().getKey());
+        return mossyWhiteList.contains(material.getKey().toString());
     }
 
     public boolean isTreeFellerDestructible(@NotNull Material material) {
-        return treeFellerDestructibleWhiteList.contains(material.getKey().getKey());
+        return treeFellerDestructibleWhiteList.contains(material.getKey().toString());
     }
 
     public boolean isHerbalismAbilityWhiteListed(@NotNull Material material) {
-        return herbalismAbilityBlackList.contains(material.getKey().getKey());
+        return herbalismAbilityBlackList.contains(material.getKey().toString());
     }
 
     public boolean isBlockCrackerWhiteListed(@NotNull Material material) {
-        return blockCrackerWhiteList.contains(material.getKey().getKey());
+        return blockCrackerWhiteList.contains(material.getKey().toString());
     }
 
     public boolean isShroomyWhiteListed(@NotNull Material material) {
-        return canMakeShroomyWhiteList.contains(material.getKey().getKey());
+        return canMakeShroomyWhiteList.contains(material.getKey().toString());
     }
 
     private void fillTierMap() {
@@ -764,7 +764,7 @@ public class MaterialMapStore {
      * @return true if it is used for armor
      */
     public boolean isArmor(@NotNull Material material) {
-        return isArmor(material.getKey().getKey());
+        return isArmor(material.getKey().toString());
     }
 
     /**
@@ -777,7 +777,7 @@ public class MaterialMapStore {
     }
 
     public boolean isTool(@NotNull Material material) {
-        return isTool(material.getKey().getKey());
+        return isTool(material.getKey().toString());
     }
 
     public boolean isTool(@NotNull String id) {
@@ -785,7 +785,7 @@ public class MaterialMapStore {
     }
 
     public boolean isEnchantable(@NotNull Material material) {
-        return isEnchantable(material.getKey().getKey());
+        return isEnchantable(material.getKey().toString());
     }
 
     public boolean isEnchantable(@NotNull String id) {
@@ -793,7 +793,7 @@ public class MaterialMapStore {
     }
 
     public boolean isOre(@NotNull Material material) {
-        return isOre(material.getKey().getKey());
+        return isOre(material.getKey().toString());
     }
 
     public boolean isOre(@NotNull String id) {
@@ -801,7 +801,7 @@ public class MaterialMapStore {
     }
 
     public boolean isBow(@NotNull Material material) {
-        return isBow(material.getKey().getKey());
+        return isBow(material.getKey().toString());
     }
 
     public boolean isBow(@NotNull String id) {
@@ -809,7 +809,7 @@ public class MaterialMapStore {
     }
 
     public boolean isCrossbow(@NotNull Material material) {
-        return isCrossbow(material.getKey().getKey());
+        return isCrossbow(material.getKey().toString());
     }
 
     public boolean isCrossbow(@NotNull String id) {
@@ -817,7 +817,7 @@ public class MaterialMapStore {
     }
 
     public boolean isTrident(@NotNull Material material) {
-        return isTrident(material.getKey().getKey());
+        return isTrident(material.getKey().toString());
     }
 
     public boolean isTrident(@NotNull String id) {
@@ -825,7 +825,7 @@ public class MaterialMapStore {
     }
 
     public boolean isMace(@NotNull Material material) {
-        return isMace(material.getKey().getKey());
+        return isMace(material.getKey().toString());
     }
 
     public boolean isMace(@NotNull String id) {
@@ -833,7 +833,7 @@ public class MaterialMapStore {
     }
 
     public boolean isLeatherArmor(@NotNull Material material) {
-        return isLeatherArmor(material.getKey().getKey());
+        return isLeatherArmor(material.getKey().toString());
     }
 
     public boolean isLeatherArmor(@NotNull String id) {
@@ -841,7 +841,7 @@ public class MaterialMapStore {
     }
 
     public boolean isIronArmor(@NotNull Material material) {
-        return isIronArmor(material.getKey().getKey());
+        return isIronArmor(material.getKey().toString());
     }
 
     public boolean isIronArmor(@NotNull String id) {
@@ -849,7 +849,7 @@ public class MaterialMapStore {
     }
 
     public boolean isGoldArmor(@NotNull Material material) {
-        return isGoldArmor(material.getKey().getKey());
+        return isGoldArmor(material.getKey().toString());
     }
 
     public boolean isGoldArmor(@NotNull String id) {
@@ -857,7 +857,7 @@ public class MaterialMapStore {
     }
 
     public boolean isDiamondArmor(@NotNull Material material) {
-        return isDiamondArmor(material.getKey().getKey());
+        return isDiamondArmor(material.getKey().toString());
     }
 
     public boolean isDiamondArmor(@NotNull String id) {
@@ -865,7 +865,7 @@ public class MaterialMapStore {
     }
 
     public boolean isChainmailArmor(@NotNull Material material) {
-        return isChainmailArmor(material.getKey().getKey());
+        return isChainmailArmor(material.getKey().toString());
     }
 
     public boolean isChainmailArmor(@NotNull String id) {
@@ -873,7 +873,7 @@ public class MaterialMapStore {
     }
 
     public boolean isNetheriteArmor(@NotNull Material material) {
-        return isNetheriteArmor(material.getKey().getKey());
+        return isNetheriteArmor(material.getKey().toString());
     }
 
     public boolean isNetheriteArmor(@NotNull String id) {
@@ -881,7 +881,7 @@ public class MaterialMapStore {
     }
 
     public boolean isWoodTool(@NotNull Material material) {
-        return isWoodTool(material.getKey().getKey());
+        return isWoodTool(material.getKey().toString());
     }
 
     public boolean isWoodTool(@NotNull String id) {
@@ -889,7 +889,7 @@ public class MaterialMapStore {
     }
 
     public boolean isStoneTool(@NotNull Material material) {
-        return isStoneTool(material.getKey().getKey());
+        return isStoneTool(material.getKey().toString());
     }
 
     public boolean isStoneTool(@NotNull String id) {
@@ -897,7 +897,7 @@ public class MaterialMapStore {
     }
 
     public boolean isIronTool(@NotNull Material material) {
-        return isIronTool(material.getKey().getKey());
+        return isIronTool(material.getKey().toString());
     }
 
     public boolean isIronTool(@NotNull String id) {
@@ -905,7 +905,7 @@ public class MaterialMapStore {
     }
 
     public boolean isGoldTool(@NotNull Material material) {
-        return isGoldTool(material.getKey().getKey());
+        return isGoldTool(material.getKey().toString());
     }
 
     public boolean isGoldTool(@NotNull String id) {
@@ -913,7 +913,7 @@ public class MaterialMapStore {
     }
 
     public boolean isDiamondTool(@NotNull Material material) {
-        return isDiamondTool(material.getKey().getKey());
+        return isDiamondTool(material.getKey().toString());
     }
 
     public boolean isDiamondTool(@NotNull String id) {
@@ -921,7 +921,7 @@ public class MaterialMapStore {
     }
 
     public boolean isSword(@NotNull Material material) {
-        return isSword(material.getKey().getKey());
+        return isSword(material.getKey().toString());
     }
 
     public boolean isSword(@NotNull String id) {
@@ -929,7 +929,7 @@ public class MaterialMapStore {
     }
 
     public boolean isAxe(@NotNull Material material) {
-        return isAxe(material.getKey().getKey());
+        return isAxe(material.getKey().toString());
     }
 
     public boolean isAxe(@NotNull String id) {
@@ -937,7 +937,7 @@ public class MaterialMapStore {
     }
 
     public boolean isPickAxe(@NotNull Material material) {
-        return isPickAxe(material.getKey().getKey());
+        return isPickAxe(material.getKey().toString());
     }
 
     public boolean isPickAxe(@NotNull String id) {
@@ -945,7 +945,7 @@ public class MaterialMapStore {
     }
 
     public boolean isShovel(@NotNull Material material) {
-        return isShovel(material.getKey().getKey());
+        return isShovel(material.getKey().toString());
     }
 
     public boolean isShovel(@NotNull String id) {
@@ -953,7 +953,7 @@ public class MaterialMapStore {
     }
 
     public boolean isHoe(@NotNull Material material) {
-        return isHoe(material.getKey().getKey());
+        return isHoe(material.getKey().toString());
     }
 
     public boolean isHoe(@NotNull String id) {
@@ -961,7 +961,7 @@ public class MaterialMapStore {
     }
 
     public boolean isNetheriteTool(@NotNull Material material) {
-        return isNetheriteTool(material.getKey().getKey());
+        return isNetheriteTool(material.getKey().toString());
     }
 
     public boolean isNetheriteTool(@NotNull String id) {
@@ -969,7 +969,7 @@ public class MaterialMapStore {
     }
 
     public boolean isStringTool(@NotNull Material material) {
-        return isStringTool(material.getKey().getKey());
+        return isStringTool(material.getKey().toString());
     }
 
     public boolean isStringTool(@NotNull String id) {
@@ -977,11 +977,11 @@ public class MaterialMapStore {
     }
 
     public boolean isGlass(@NotNull Material material) {
-        return glassBlocks.contains(material.getKey().getKey());
+        return glassBlocks.contains(material.getKey().toString());
     }
 
     public boolean isFood(@NotNull Material material) {
-        return foodItemWhiteList.contains(material.getKey().getKey());
+        return foodItemWhiteList.contains(material.getKey().toString());
     }
 
     private void fillMultiBlockPlantSet() {
@@ -1330,7 +1330,7 @@ public class MaterialMapStore {
     }
 
     public boolean isIntendedToolPickaxe(@NotNull Material material) {
-        return intendedToolPickAxe.contains(material.getKey().getKey());
+        return intendedToolPickAxe.contains(material.getKey().toString());
     }
 
     public boolean isIntendedToolPickaxe(@NotNull String string) {
@@ -1347,7 +1347,7 @@ public class MaterialMapStore {
 
 
     public int getTier(@NotNull Material material) {
-        return getTier(material.getKey().getKey());
+        return getTier(material.getKey().toString());
     }
 
     public int getTier(@NotNull String id) {

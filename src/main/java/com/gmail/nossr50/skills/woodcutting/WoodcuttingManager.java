@@ -42,11 +42,11 @@ import static com.gmail.nossr50.util.Misc.getBlockCenter;
 import static com.gmail.nossr50.util.skills.RankUtils.hasUnlockedSubskill;
 
 public class WoodcuttingManager extends SkillManager {
-    public static final String SAPLING = "sapling";
-    public static final String PROPAGULE = "propagule";
+    public static final String SAPLING = "minecraft:sapling";
+    public static final String PROPAGULE = "minecraft:propagule";
     private static final Predicate<ItemStack> IS_SAPLING_OR_PROPAGULE =
-            p -> p.getType().getKey().getKey().toLowerCase().contains(SAPLING)
-                    || p.getType().getKey().getKey().toLowerCase().contains(PROPAGULE);
+            p -> p.getType().getKey().toString().toLowerCase().contains(SAPLING)
+                    || p.getType().getKey().toString().toLowerCase().contains(PROPAGULE);
     private boolean treeFellerReachedThreshold = false;
     private static int treeFellerThreshold;
 

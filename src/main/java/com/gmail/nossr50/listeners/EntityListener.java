@@ -224,7 +224,7 @@ public class EntityListener implements Listener {
                 BlockUtils.setUnnaturalBlock(block);
                 entity.removeMetadata(MetadataConstants.METADATA_KEY_TRAVELING_BLOCK, pluginRef);
             }
-        } else if ((block.getType() == Material.REDSTONE_ORE || block.getType().getKey().getKey().equalsIgnoreCase("deepslate_redstone_ore"))) {
+        } else if ((block.getType() == Material.REDSTONE_ORE || block.getType().getKey().toString().equalsIgnoreCase("minecraft:deepslate_redstone_ore"))) {
             //Redstone ore fire this event and should be ignored
         } else {
             if (mcMMO.getUserBlockTracker().isIneligible(block)) {
@@ -913,7 +913,7 @@ public class EntityListener implements Listener {
          */
 
         //Hacky 1.17 support
-        if (foodInHand.getKey().getKey().equalsIgnoreCase("glow_berries")) {
+        if (foodInHand.getKey().toString().equalsIgnoreCase("minecraft:glow_berries")) {
             if (Permissions.isSubSkillEnabled(player, SubSkillType.HERBALISM_FARMERS_DIET)) {
                 event.setFoodLevel(UserManager.getPlayer(player).getHerbalismManager().farmersDiet(newFoodLevel));
             }

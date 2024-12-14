@@ -479,8 +479,8 @@ public class HerbalismManager extends SkillManager {
             if (firstBlock != null
                     && firstXpReward != -1
                     && ExperienceConfig.getInstance().limitXPOnTallPlants()
-                    && plantBreakLimits.containsKey(firstBlock.getType().getKey().getKey())) {
-                int limit = plantBreakLimits.get(firstBlock.getType().getKey().getKey()) * firstXpReward;
+                    && plantBreakLimits.containsKey(firstBlock.getType().getKey().toString())) {
+                int limit = plantBreakLimits.get(firstBlock.getType().getKey().toString()) * firstXpReward;
                 // Plant may be unnaturally tall, limit XP
                 applyXpGain(Math.min(xpToReward, limit), XPGainReason.PVE, XPGainSource.SELF);
             } else {
@@ -491,8 +491,8 @@ public class HerbalismManager extends SkillManager {
 
     private int getNaturalGrowthLimit(Material brokenPlant) {
         // This is an exploit counter-measure to prevent players from growing unnaturally tall plants and reaping XP
-        if (plantBreakLimits.containsKey(brokenPlant.getKey().getKey())) {
-            return plantBreakLimits.get(brokenPlant.getKey().getKey());
+        if (plantBreakLimits.containsKey(brokenPlant.getKey().toString())) {
+            return plantBreakLimits.get(brokenPlant.getKey().toString());
         } else {
             return 0;
         }
@@ -807,14 +807,14 @@ public class HerbalismManager extends SkillManager {
         final Player player = getPlayer();
         final Material replantMaterial;
 
-        switch (blockState.getType().getKey().getKey().toLowerCase(Locale.ENGLISH)) {
-            case "carrots" -> replantMaterial = Material.matchMaterial("CARROT");
-            case "wheat" -> replantMaterial = Material.matchMaterial("WHEAT_SEEDS");
-            case "nether_wart" -> replantMaterial = Material.getMaterial("NETHER_WART");
-            case "potatoes" -> replantMaterial = Material.matchMaterial("POTATO");
-            case "beetroots" -> replantMaterial = Material.matchMaterial("BEETROOT_SEEDS");
-            case "cocoa" -> replantMaterial = Material.matchMaterial("COCOA_BEANS");
-            case "torchflower" -> replantMaterial = Material.matchMaterial("TORCHFLOWER_SEEDS");
+        switch (blockState.getType().getKey().toString().toLowerCase(Locale.ENGLISH)) {
+            case "minecraft:carrots" -> replantMaterial = Material.matchMaterial("CARROT");
+            case "minecraft:wheat" -> replantMaterial = Material.matchMaterial("WHEAT_SEEDS");
+            case "minecraft:nether_wart" -> replantMaterial = Material.getMaterial("NETHER_WART");
+            case "minecraft:potatoes" -> replantMaterial = Material.matchMaterial("POTATO");
+            case "minecraft:beetroots" -> replantMaterial = Material.matchMaterial("BEETROOT_SEEDS");
+            case "minecraft:cocoa" -> replantMaterial = Material.matchMaterial("COCOA_BEANS");
+            case "minecraft:torchflower" -> replantMaterial = Material.matchMaterial("TORCHFLOWER_SEEDS");
             default -> {
                 return false;
             }
@@ -872,11 +872,11 @@ public class HerbalismManager extends SkillManager {
             return true;
         }
 
-        switch (blockState.getType().getKey().getKey()) {
+        switch (blockState.getType().getKey().toString()) {
 
-            case "potatoes":
-            case "carrots":
-            case "wheat":
+            case "minecraft:potatoes":
+            case "minecraft:carrots":
+            case "minecraft:wheat":
 
                     finalAge = getGreenThumbStage(greenTerra);
                 break;

@@ -37,7 +37,7 @@ import static com.gmail.nossr50.util.ItemUtils.isPickaxe;
 
 public class MiningManager extends SkillManager {
 
-    public static final String BUDDING_AMETHYST = "budding_amethyst";
+    public static final String BUDDING_AMETHYST = "minecraft:budding_amethyst";
     public static final Collection<Material> BLAST_MINING_BLACKLIST = Set.of(Material.SPAWNER);
 
     public MiningManager(@NotNull McMMOPlayer mcMMOPlayer) {
@@ -256,7 +256,7 @@ public class MiningManager extends SkillManager {
      * @return true if it's not legal to obtain the block through normal gameplay
      */
     public boolean isDropIllegal(@NotNull Material material) {
-        return material.getKey().getKey().equalsIgnoreCase(BUDDING_AMETHYST);
+        return material.getKey().toString().equalsIgnoreCase(BUDDING_AMETHYST);
     }
 
     /**

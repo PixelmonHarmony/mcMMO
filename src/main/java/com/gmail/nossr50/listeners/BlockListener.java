@@ -551,7 +551,7 @@ public class BlockListener implements Listener {
                     if (SuperAbilityType.BERSERK.blockCheck(blockState) && EventUtils.simulateBlockBreak(blockState.getBlock(), player)) {
                         event.setInstaBreak(true);
 
-                        if (blockState.getType().getKey().getKey().contains("glass")) {
+                        if (blockState.getType().getKey().toString().contains("glass")) {
                             SoundManager.worldSendSound(player.getWorld(), blockState.getLocation(), SoundType.GLASS);
                         } else {
                             SoundManager.sendSound(player, blockState.getLocation(), SoundType.POP);
@@ -626,7 +626,7 @@ public class BlockListener implements Listener {
             } else if (!event.getInstaBreak() && SuperAbilityType.BERSERK.blockCheck(blockState) && EventUtils.simulateBlockBreak(block, player)) {
                 event.setInstaBreak(true);
 
-                if (blockState.getType().getKey().getKey().contains("glass")) {
+                if (blockState.getType().getKey().toString().contains("glass")) {
                     SoundManager.worldSendSound(player.getWorld(), block.getLocation(), SoundType.GLASS);
                 } else {
                     SoundManager.sendSound(player, block.getLocation(), SoundType.POP);
