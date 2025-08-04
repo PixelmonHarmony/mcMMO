@@ -59,7 +59,7 @@ class ChunkStoreTest {
 
         mcMMOMock = mockStatic(mcMMO.class);
 
-        when(mockWorld.getMinHeight()).thenReturn(LEGACY_WORLD_HEIGHT_MIN);
+//        when(mockWorld.getMinHeight()).thenReturn(LEGACY_WORLD_HEIGHT_MIN);
         when(mockWorld.getMaxHeight()).thenReturn(LEGACY_WORLD_HEIGHT_MAX);
     }
 

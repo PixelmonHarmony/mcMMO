@@ -20,6 +20,7 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.logging.Level;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.inventory.ItemStack;
 
@@ -50,9 +51,9 @@ public class SalvageConfig extends BukkitConfig {
             mcMMO.p.getLogger().log(
                     Level.INFO,
                     "Fixing incorrect Salvage quantities on Netherite gear, this will only run once...");
-            for (String namespacedkey : mcMMO.getMaterialMapStore().getNetheriteArmor()) {
+            for (NamespacedKey namespacedkey : mcMMO.getMaterialMapStore().getNetheriteArmor()) {
                 config.set(
-                        "Salvageables." + namespacedkey.toUpperCase(Locale.ENGLISH)
+                        "Salvageables." + namespacedkey.getKey().toUpperCase(Locale.ENGLISH)
                                 + ".MaximumQuantity",
                         4); //TODO: Doesn't make sense to default to 4 for everything
             }

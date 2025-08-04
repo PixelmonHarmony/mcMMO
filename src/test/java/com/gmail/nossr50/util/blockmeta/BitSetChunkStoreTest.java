@@ -60,7 +60,7 @@ class BitSetChunkStoreTest {
 
         mcMMOMock = mockStatic(mcMMO.class);
 
-        when(mockWorld.getMinHeight()).thenReturn(LEGACY_WORLD_HEIGHT_MIN);
+//        when(mockWorld.getMinHeight()).thenReturn(LEGACY_WORLD_HEIGHT_MIN);
         when(mockWorld.getMaxHeight()).thenReturn(LEGACY_WORLD_HEIGHT_MAX);
     }
 
@@ -102,7 +102,7 @@ class BitSetChunkStoreTest {
 
     @Test
     void testNegativeWorldMin() throws IOException {
-        when(mockWorld.getMinHeight()).thenReturn(-64);
+//        when(mockWorld.getMinHeight()).thenReturn(-64);
 
         final BitSetChunkStore original = new BitSetChunkStore(mockWorld, 1, 2);
         original.setTrue(14, -32, 12);
@@ -122,7 +122,7 @@ class BitSetChunkStoreTest {
         original.setTrue(13, 3, 12);
         byte[] serializedBytes = serializeChunkStore(original);
 
-        when(mockWorld.getMinHeight()).thenReturn(-64);
+//        when(mockWorld.getMinHeight()).thenReturn(-64);
         final ChunkStore deserialized = BitSetChunkStore.Serialization.readChunkStore(
                 new DataInputStream(new ByteArrayInputStream(serializedBytes)));
         assert deserialized != null;

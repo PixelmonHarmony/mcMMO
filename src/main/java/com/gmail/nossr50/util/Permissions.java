@@ -22,8 +22,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public final class Permissions {
-    private Permissions() {
-    }
+    private Permissions() {}
 
     /*
      * GENERAL
