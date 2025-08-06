@@ -2,8 +2,10 @@ package com.gmail.nossr50.util;
 
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Locale;
+import java.util.Set;
+
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -12,102 +14,56 @@ import org.jetbrains.annotations.NotNull;
  */
 public class MaterialMapStore {
 
-    private final @NotNull HashSet<String> abilityBlackList;
-    private final @NotNull HashSet<String> toolBlackList;
-    private final @NotNull HashSet<String> mossyWhiteList;
-    private final @NotNull HashSet<String> treeFellerDestructibleWhiteList;
-    private final @NotNull HashSet<String> herbalismAbilityBlackList;
-    private final @NotNull HashSet<String> blockCrackerWhiteList;
-    private final @NotNull HashSet<String> canMakeShroomyWhiteList;
-    private final @NotNull HashSet<String> multiBlockPlant;
-    private final @NotNull HashSet<String> multiBlockHangingPlant;
-    private final @NotNull HashSet<String> foodItemWhiteList;
-    private final @NotNull HashSet<String> glassBlocks;
+    private final @NotNull Set<NamespacedKey> abilityBlackList = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> toolBlackList = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> mossyWhiteList = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> treeFellerDestructibleWhiteList = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> herbalismAbilityBlackList = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> blockCrackerWhiteList = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> canMakeShroomyWhiteList = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> multiBlockPlant = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> multiBlockHangingPlant = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> foodItemWhiteList = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> glassBlocks = new HashSet<>();
 
-    private final @NotNull HashSet<String> netheriteArmor;
-    private final @NotNull HashSet<String> netheriteTools;
-    private final @NotNull HashSet<String> woodTools;
-    private final @NotNull HashSet<String> stoneTools;
-    private final @NotNull HashSet<String> leatherArmor;
-    private final @NotNull HashSet<String> ironArmor;
-    private final @NotNull HashSet<String> ironTools;
-    private final @NotNull HashSet<String> stringTools;
-    private final @NotNull HashSet<String> prismarineTools;
-    private final @NotNull HashSet<String> goldArmor;
-    private final @NotNull HashSet<String> goldTools;
-    private final @NotNull HashSet<String> chainmailArmor;
-    private final @NotNull HashSet<String> diamondArmor;
-    private final @NotNull HashSet<String> diamondTools;
-    private final @NotNull HashSet<String> armors;
+    private final @NotNull Set<NamespacedKey> ultriteArmor = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> ultriteTools = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> netheriteArmor = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> netheriteTools = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> woodTools = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> stoneTools = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> leatherArmor = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> ironArmor = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> ironTools = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> stringTools = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> prismarineTools = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> goldArmor = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> goldTools = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> chainmailArmor = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> diamondArmor = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> diamondTools = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> armors = new HashSet<>();
 
-    private final @NotNull HashSet<String> swords;
-    private final @NotNull HashSet<String> axes;
-    private final @NotNull HashSet<String> hoes;
-    private final @NotNull HashSet<String> shovels;
-    private final @NotNull HashSet<String> pickAxes;
-    private final @NotNull HashSet<String> tridents;
-    private final @NotNull HashSet<String> bows;
-    private final @NotNull HashSet<String> crossbows;
-    private final @NotNull HashSet<String> tools;
-    private final @NotNull HashSet<String> enchantables;
-    private final @NotNull HashSet<String> maces;
+    private final @NotNull Set<NamespacedKey> swords = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> axes = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> hoes = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> shovels = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> pickAxes = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> tridents = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> bows = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> crossbows = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> tools = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> enchantables = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> maces = new HashSet<>();
 
-    private final @NotNull HashSet<String> ores;
-    private final @NotNull HashSet<String> intendedToolPickAxe;
-    private final @NotNull HashSet<String> intendedToolShovel;
+    private final @NotNull Set<NamespacedKey> ores = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> intendedToolPickAxe = new HashSet<>();
+    private final @NotNull Set<NamespacedKey> intendedToolShovel = new HashSet<>();
 
-    private final @NotNull HashMap<String, Integer> tierValue;
+    private final @NotNull HashMap<NamespacedKey, Integer> tierValue = new HashMap<>();
 
 
     public MaterialMapStore() {
-        abilityBlackList = new HashSet<>();
-        toolBlackList = new HashSet<>();
-        mossyWhiteList = new HashSet<>();
-        treeFellerDestructibleWhiteList = new HashSet<>();
-        herbalismAbilityBlackList = new HashSet<>();
-        blockCrackerWhiteList = new HashSet<>();
-        canMakeShroomyWhiteList = new HashSet<>();
-        multiBlockPlant = new HashSet<>();
-        multiBlockHangingPlant = new HashSet<>();
-        foodItemWhiteList = new HashSet<>();
-        glassBlocks = new HashSet<>();
-
-        leatherArmor = new HashSet<>();
-        ironArmor = new HashSet<>();
-        chainmailArmor = new HashSet<>();
-        goldArmor = new HashSet<>();
-        diamondArmor = new HashSet<>();
-        netheriteArmor = new HashSet<>();
-        armors = new HashSet<>();
-
-        woodTools = new HashSet<>();
-        stoneTools = new HashSet<>();
-        ironTools = new HashSet<>();
-        goldTools = new HashSet<>();
-        diamondTools = new HashSet<>();
-        netheriteTools = new HashSet<>();
-        bows = new HashSet<>();
-        crossbows = new HashSet<>();
-        stringTools = new HashSet<>();
-        prismarineTools = new HashSet<>();
-        tools = new HashSet<>();
-
-        swords = new HashSet<>();
-        axes = new HashSet<>();
-        pickAxes = new HashSet<>();
-        shovels = new HashSet<>();
-        hoes = new HashSet<>();
-        tridents = new HashSet<>();
-        maces = new HashSet<>();
-
-        enchantables = new HashSet<>();
-
-        ores = new HashSet<>();
-        intendedToolPickAxe = new HashSet<>();
-        intendedToolShovel = new HashSet<>();
-
-        tierValue = new HashMap<>();
-
         fillVanillaMaterialRegisters();
     }
 
@@ -154,288 +110,281 @@ public class MaterialMapStore {
     }
 
     public boolean isTreeFellerDestructible(@NotNull Material material) {
-        return treeFellerDestructibleWhiteList.contains(material.getKey().getKey());
+        return treeFellerDestructibleWhiteList.contains(material.getKey());
     }
 
     public boolean isHerbalismAbilityWhiteListed(@NotNull Material material) {
-        return herbalismAbilityBlackList.contains(material.getKey().getKey());
+        return herbalismAbilityBlackList.contains(material.getKey());
     }
 
     public boolean isBlockCrackerWhiteListed(@NotNull Material material) {
-        return blockCrackerWhiteList.contains(material.getKey().getKey());
+        return blockCrackerWhiteList.contains(material.getKey());
     }
 
     public boolean isShroomyWhiteListed(@NotNull Material material) {
-        return canMakeShroomyWhiteList.contains(material.getKey().getKey());
+        return canMakeShroomyWhiteList.contains(material.getKey());
     }
 
     private void fillTierMap() {
-        for (String id : leatherArmor) {
+        for (NamespacedKey id : leatherArmor) {
             tierValue.put(id, 1);
         }
 
-        for (String id : ironArmor) {
+        for (NamespacedKey id : ironArmor) {
             tierValue.put(id, 2);
         }
 
-        for (String id : goldArmor) {
+        for (NamespacedKey id : goldArmor) {
             tierValue.put(id, 3);
         }
 
-        for (String id : chainmailArmor) {
+        for (NamespacedKey id : chainmailArmor) {
             tierValue.put(id, 3);
         }
 
-        for (String id : diamondArmor) {
+        for (NamespacedKey id : diamondArmor) {
             tierValue.put(id, 6);
         }
 
-        for (String id : netheriteArmor) {
+        for (NamespacedKey id : netheriteArmor) {
             tierValue.put(id, 12);
+        }
+
+        for (NamespacedKey id : ultriteArmor) {
+            tierValue.put(id, 16);
         }
     }
 
     private void fillOres() {
-        ores.add("coal_ore");
-        ores.add("diamond_ore");
-        ores.add("nether_quartz_ore");
-        ores.add("quartz_ore"); //Pre 1.13
-        ores.add("gold_ore");
-        ores.add("iron_ore");
-        ores.add("lapis_ore");
-        ores.add("lapis_lazuli_ore");
-        ores.add("redstone_ore");
-        ores.add("emerald_ore");
-        ores.add("ancient_debris");
-        ores.add("nether_gold_ore");
-        ores.add("gilded_blackstone");
+        addVanilla(ores, "coal_ore");
+        addVanilla(ores, "diamond_ore");
+        addVanilla(ores, "nether_quartz_ore");
+        addVanilla(ores, "quartz_ore"); //Pre 1.13
+        addVanilla(ores, "gold_ore");
+        addVanilla(ores, "iron_ore");
+        addVanilla(ores, "lapis_ore");
+        addVanilla(ores, "lapis_lazuli_ore");
+        addVanilla(ores, "redstone_ore");
+        addVanilla(ores, "emerald_ore");
+        addVanilla(ores, "ancient_debris");
+        addVanilla(ores, "nether_gold_ore");
+        addVanilla(ores, "gilded_blackstone");
 
-        //1.17 Mining Ore Blocks
-        ores.add("deepslate_redstone_ore");
-        ores.add("deepslate_copper_ore");
-        ores.add("deepslate_coal_ore");
-        ores.add("deepslate_diamond_ore");
-        ores.add("deepslate_emerald_ore");
-        ores.add("deepslate_iron_ore");
-        ores.add("deepslate_gold_ore");
-//        ores.add("deepslate_lapis_lazuli_ore");
-        ores.add("deepslate_lapis_ore");
-        ores.add("copper_ore");
+        addVanilla(ores, "deepslate_redstone_ore");
+        addVanilla(ores, "deepslate_copper_ore");
+        addVanilla(ores, "deepslate_coal_ore");
+        addVanilla(ores, "deepslate_diamond_ore");
+        addVanilla(ores, "deepslate_emerald_ore");
+        addVanilla(ores, "deepslate_iron_ore");
+        addVanilla(ores, "deepslate_gold_ore");
+        addVanilla(ores, "deepslate_lapis_ore");
+        addVanilla(ores, "copper_ore");
     }
 
     private void fillIntendedTools() {
         intendedToolPickAxe.addAll(ores);
 
-        intendedToolPickAxe.add("lapis_lazuli_ore");
-        intendedToolPickAxe.add("packed_mud");
-        intendedToolPickAxe.add("mud_bricks");
-        intendedToolPickAxe.add("reinforced_deepslate");
-        intendedToolPickAxe.add("ice");
-        intendedToolPickAxe.add("packed_ice");
-        intendedToolPickAxe.add("blue_ice");
-        intendedToolPickAxe.add("frosted_ice");
-        intendedToolPickAxe.add("anvil");
-        intendedToolPickAxe.add("bell");
-        intendedToolPickAxe.add("block_of_redstone");
-        intendedToolPickAxe.add("brewing_stand");
-        intendedToolPickAxe.add("cauldron");
-        intendedToolPickAxe.add("chain");
-        intendedToolPickAxe.add("hopper");
-        intendedToolPickAxe.add("iron_bars");
-        intendedToolPickAxe.add("iron_door");
-        intendedToolPickAxe.add("iron_trapdoor");
-        intendedToolPickAxe.add("lantern");
-        intendedToolPickAxe.add("weighted_pressure_plates");
-        intendedToolPickAxe.add("block_of_iron");
-        intendedToolPickAxe.add("copper_blocks");
-        intendedToolPickAxe.add("cut_copper");
-        intendedToolPickAxe.add("cut_copper_slab");
-        intendedToolPickAxe.add("cut_copper_stairs");
-        intendedToolPickAxe.add("lapis_lazuli_block");
-        intendedToolPickAxe.add("lightning_rod");
-        intendedToolPickAxe.add("block_of_diamond");
-        intendedToolPickAxe.add("block_of_emerald");
-        intendedToolPickAxe.add("block_of_gold");
-        intendedToolPickAxe.add("block_of_netherite");
-        intendedToolPickAxe.add("piston");
-        intendedToolPickAxe.add("sticky_piston");
-        intendedToolPickAxe.add("conduit");
-        intendedToolPickAxe.add("shulker_box");
-        intendedToolPickAxe.add("element_constructor"); //be & ee
-        intendedToolPickAxe.add("compound_creator"); //be & ee
-        intendedToolPickAxe.add("material_reducer"); //be & ee
-        intendedToolPickAxe.add("activator_rail");
-        intendedToolPickAxe.add("detector_rail");
-        intendedToolPickAxe.add("powered_rail");
-        intendedToolPickAxe.add("rail");
-        intendedToolPickAxe.add("andesite");
-        intendedToolPickAxe.add("basalt");
-        intendedToolPickAxe.add("blackstone");
-        intendedToolPickAxe.add("blast_furnace");
-        intendedToolPickAxe.add("block_of_coal");
-        intendedToolPickAxe.add("block_of_quartz");
-        intendedToolPickAxe.add("bricks");
-        intendedToolPickAxe.add("cobblestone");
-        intendedToolPickAxe.add("cobblestone_wall");
-        intendedToolPickAxe.add("concrete");
-        intendedToolPickAxe.add("dark_prismarine");
-        intendedToolPickAxe.add("diorite");
-        intendedToolPickAxe.add("dispenser");
-        intendedToolPickAxe.add("dripstone_block");
-        intendedToolPickAxe.add("dropper");
-        intendedToolPickAxe.add("enchantment_table");
-        intendedToolPickAxe.add("end_stone");
-        intendedToolPickAxe.add("ender_chest");
-        intendedToolPickAxe.add("furnace");
-        intendedToolPickAxe.add("glazed_terracotta");
-        intendedToolPickAxe.add("granite");
-        intendedToolPickAxe.add("grindstone");
-        intendedToolPickAxe.add("heat_block"); //be & ee
-        intendedToolPickAxe.add("lodestone");
-        intendedToolPickAxe.add("mossy_cobblestone");
-        intendedToolPickAxe.add("nether_bricks");
-        intendedToolPickAxe.add("nether_brick_fence");
-        intendedToolPickAxe.add("nether_gold_ore");
-        intendedToolPickAxe.add("nether_quartz_ore");
-        intendedToolPickAxe.add("netherrack");
-        intendedToolPickAxe.add("observer");
-        intendedToolPickAxe.add("prismarine");
-        intendedToolPickAxe.add("prismarine_bricks");
-        intendedToolPickAxe.add("pointed_dripstone");
-        intendedToolPickAxe.add("polished_andesite");
-        intendedToolPickAxe.add("polished_blackstone");
-        intendedToolPickAxe.add("polished_blackstone_bricks");
-        intendedToolPickAxe.add("polished_diorite");
-        intendedToolPickAxe.add("polished_granite");
-        intendedToolPickAxe.add("red_sandstone");
-        intendedToolPickAxe.add("sandstone");
-        intendedToolPickAxe.add("smoker");
-        intendedToolPickAxe.add("spawner");
-        intendedToolPickAxe.add("stonecutter");
-//        intendedToolPickAxe.add("slabs");
-        intendedToolPickAxe.add("colored_terracotta");
-//        intendedToolPickAxe.add("stairs");
-        intendedToolPickAxe.add("smooth_stone");
-        intendedToolPickAxe.add("stone");
-        intendedToolPickAxe.add("stone_bricks");
-        intendedToolPickAxe.add("stone_button");
-        intendedToolPickAxe.add("stone_pressure_plate");
-        intendedToolPickAxe.add("terracotta");
-        intendedToolPickAxe.add("ancient_debris");
-        intendedToolPickAxe.add("crying_obsidian");
-        intendedToolPickAxe.add("glowing_obsidian"); //be
-        intendedToolPickAxe.add("obsidian");
-        intendedToolPickAxe.add("respawn_anchor");
+        addVanilla(intendedToolPickAxe, "lapis_lazuli_ore");
+        addVanilla(intendedToolPickAxe, "packed_mud");
+        addVanilla(intendedToolPickAxe, "mud_bricks");
+        addVanilla(intendedToolPickAxe, "reinforced_deepslate");
+        addVanilla(intendedToolPickAxe, "ice");
+        addVanilla(intendedToolPickAxe, "packed_ice");
+        addVanilla(intendedToolPickAxe, "blue_ice");
+        addVanilla(intendedToolPickAxe, "frosted_ice");
+        addVanilla(intendedToolPickAxe, "anvil");
+        addVanilla(intendedToolPickAxe, "bell");
+        addVanilla(intendedToolPickAxe, "block_of_redstone");
+        addVanilla(intendedToolPickAxe, "brewing_stand");
+        addVanilla(intendedToolPickAxe, "cauldron");
+        addVanilla(intendedToolPickAxe, "chain");
+        addVanilla(intendedToolPickAxe, "hopper");
+        addVanilla(intendedToolPickAxe, "iron_bars");
+        addVanilla(intendedToolPickAxe, "iron_door");
+        addVanilla(intendedToolPickAxe, "iron_trapdoor");
+        addVanilla(intendedToolPickAxe, "lantern");
+        addVanilla(intendedToolPickAxe, "weighted_pressure_plates");
+        addVanilla(intendedToolPickAxe, "block_of_iron");
+        addVanilla(intendedToolPickAxe, "copper_blocks");
+        addVanilla(intendedToolPickAxe, "cut_copper");
+        addVanilla(intendedToolPickAxe, "cut_copper_slab");
+        addVanilla(intendedToolPickAxe, "cut_copper_stairs");
+        addVanilla(intendedToolPickAxe, "lapis_lazuli_block");
+        addVanilla(intendedToolPickAxe, "lightning_rod");
+        addVanilla(intendedToolPickAxe, "block_of_diamond");
+        addVanilla(intendedToolPickAxe, "block_of_emerald");
+        addVanilla(intendedToolPickAxe, "block_of_gold");
+        addVanilla(intendedToolPickAxe, "block_of_netherite");
+        addVanilla(intendedToolPickAxe, "piston");
+        addVanilla(intendedToolPickAxe, "sticky_piston");
+        addVanilla(intendedToolPickAxe, "conduit");
+        addVanilla(intendedToolPickAxe, "shulker_box");
+        addVanilla(intendedToolPickAxe, "element_constructor"); //be & ee
+        addVanilla(intendedToolPickAxe, "compound_creator"); //be & ee
+        addVanilla(intendedToolPickAxe, "material_reducer"); //be & ee
+        addVanilla(intendedToolPickAxe, "activator_rail");
+        addVanilla(intendedToolPickAxe, "detector_rail");
+        addVanilla(intendedToolPickAxe, "powered_rail");
+        addVanilla(intendedToolPickAxe, "rail");
+        addVanilla(intendedToolPickAxe, "andesite");
+        addVanilla(intendedToolPickAxe, "basalt");
+        addVanilla(intendedToolPickAxe, "blackstone");
+        addVanilla(intendedToolPickAxe, "blast_furnace");
+        addVanilla(intendedToolPickAxe, "block_of_coal");
+        addVanilla(intendedToolPickAxe, "block_of_quartz");
+        addVanilla(intendedToolPickAxe, "bricks");
+        addVanilla(intendedToolPickAxe, "cobblestone");
+        addVanilla(intendedToolPickAxe, "cobblestone_wall");
+        addVanilla(intendedToolPickAxe, "concrete");
+        addVanilla(intendedToolPickAxe, "dark_prismarine");
+        addVanilla(intendedToolPickAxe, "diorite");
+        addVanilla(intendedToolPickAxe, "dispenser");
+        addVanilla(intendedToolPickAxe, "dripstone_block");
+        addVanilla(intendedToolPickAxe, "dropper");
+        addVanilla(intendedToolPickAxe, "enchantment_table");
+        addVanilla(intendedToolPickAxe, "end_stone");
+        addVanilla(intendedToolPickAxe, "ender_chest");
+        addVanilla(intendedToolPickAxe, "furnace");
+        addVanilla(intendedToolPickAxe, "glazed_terracotta");
+        addVanilla(intendedToolPickAxe, "granite");
+        addVanilla(intendedToolPickAxe, "grindstone");
+        addVanilla(intendedToolPickAxe, "heat_block"); //be & ee
+        addVanilla(intendedToolPickAxe, "lodestone");
+        addVanilla(intendedToolPickAxe, "mossy_cobblestone");
+        addVanilla(intendedToolPickAxe, "nether_bricks");
+        addVanilla(intendedToolPickAxe, "nether_brick_fence");
+        addVanilla(intendedToolPickAxe, "nether_gold_ore");
+        addVanilla(intendedToolPickAxe, "nether_quartz_ore");
+        addVanilla(intendedToolPickAxe, "netherrack");
+        addVanilla(intendedToolPickAxe, "observer");
+        addVanilla(intendedToolPickAxe, "prismarine");
+        addVanilla(intendedToolPickAxe, "prismarine_bricks");
+        addVanilla(intendedToolPickAxe, "pointed_dripstone");
+        addVanilla(intendedToolPickAxe, "polished_andesite");
+        addVanilla(intendedToolPickAxe, "polished_blackstone");
+        addVanilla(intendedToolPickAxe, "polished_blackstone_bricks");
+        addVanilla(intendedToolPickAxe, "polished_diorite");
+        addVanilla(intendedToolPickAxe, "polished_granite");
+        addVanilla(intendedToolPickAxe, "red_sandstone");
+        addVanilla(intendedToolPickAxe, "sandstone");
+        addVanilla(intendedToolPickAxe, "smoker");
+        addVanilla(intendedToolPickAxe, "spawner");
+        addVanilla(intendedToolPickAxe, "stonecutter");
+        addVanilla(intendedToolPickAxe, "colored_terracotta");
+        addVanilla(intendedToolPickAxe, "smooth_stone");
+        addVanilla(intendedToolPickAxe, "stone");
+        addVanilla(intendedToolPickAxe, "stone_bricks");
+        addVanilla(intendedToolPickAxe, "stone_button");
+        addVanilla(intendedToolPickAxe, "stone_pressure_plate");
+        addVanilla(intendedToolPickAxe, "terracotta");
+        addVanilla(intendedToolPickAxe, "ancient_debris");
+        addVanilla(intendedToolPickAxe, "crying_obsidian");
+        addVanilla(intendedToolPickAxe, "glowing_obsidian"); //be
+        addVanilla(intendedToolPickAxe, "obsidian");
+        addVanilla(intendedToolPickAxe, "respawn_anchor");
 
         //slabs
-        intendedToolPickAxe.add("petrified_oak_slab");
-        intendedToolPickAxe.add("stone_slab");
-        intendedToolPickAxe.add("smooth_stone_slab");
-        intendedToolPickAxe.add("cobblestone_slab");
-        intendedToolPickAxe.add("mossy_cobblestone_slab");
-        intendedToolPickAxe.add("stone_brick_slab");
-        intendedToolPickAxe.add("mossy_stone_brick_slab");
-        intendedToolPickAxe.add("andesite_slab");
-        intendedToolPickAxe.add("polished_andesite_slab");
-        intendedToolPickAxe.add("diorite_slab");
-        intendedToolPickAxe.add("polished_diorite_slab");
-        intendedToolPickAxe.add("granite_slab");
-        intendedToolPickAxe.add("polished_granite_slab");
-        intendedToolPickAxe.add("sandstone_slab");
-        intendedToolPickAxe.add("cut_sandstone_slab");
-        intendedToolPickAxe.add("smooth_sandstone_slab");
-        intendedToolPickAxe.add("red_sandstone_slab");
-        intendedToolPickAxe.add("cut_red_sandstone_slab");
-        intendedToolPickAxe.add("smooth_red_sandstone_slab");
-        intendedToolPickAxe.add("brick_slab");
-        intendedToolPickAxe.add("prismarine_brick_slab");
-        intendedToolPickAxe.add("dark_prismarine_slab");
-        intendedToolPickAxe.add("nether_brick_slab");
-        intendedToolPickAxe.add("red_netherbrick_slab");
-        intendedToolPickAxe.add("quartz_slab");
-        intendedToolPickAxe.add("smooth_quartz_slab");
-        intendedToolPickAxe.add("purpur_slab");
-        intendedToolPickAxe.add("end_stone_brick_slab");
-        intendedToolPickAxe.add("blackstone_slab");
-        intendedToolPickAxe.add("polished_blackstone_slab");
-        intendedToolPickAxe.add("polished_blackstone_brick_slab");
-        intendedToolPickAxe.add("lightly_weathered_cut_copper_slab");
-        intendedToolPickAxe.add("semi_weathered_cut_copper_slab");
-        intendedToolPickAxe.add("waxed_semi_weathered_cut_copper_slab");
-        intendedToolPickAxe.add("weathered_cut_copper_slab");
-        intendedToolPickAxe.add("waxed_cut_copper_slab");
-        intendedToolPickAxe.add("waxed_lightly_weathered_cut_copper_slab");
+        addVanilla(intendedToolPickAxe, "petrified_oak_slab");
+        addVanilla(intendedToolPickAxe, "stone_slab");
+        addVanilla(intendedToolPickAxe, "smooth_stone_slab");
+        addVanilla(intendedToolPickAxe, "cobblestone_slab");
+        addVanilla(intendedToolPickAxe, "mossy_cobblestone_slab");
+        addVanilla(intendedToolPickAxe, "stone_brick_slab");
+        addVanilla(intendedToolPickAxe, "mossy_stone_brick_slab");
+        addVanilla(intendedToolPickAxe, "andesite_slab");
+        addVanilla(intendedToolPickAxe, "polished_andesite_slab");
+        addVanilla(intendedToolPickAxe, "diorite_slab");
+        addVanilla(intendedToolPickAxe, "polished_diorite_slab");
+        addVanilla(intendedToolPickAxe, "granite_slab");
+        addVanilla(intendedToolPickAxe, "polished_granite_slab");
+        addVanilla(intendedToolPickAxe, "sandstone_slab");
+        addVanilla(intendedToolPickAxe, "cut_sandstone_slab");
+        addVanilla(intendedToolPickAxe, "smooth_sandstone_slab");
+        addVanilla(intendedToolPickAxe, "red_sandstone_slab");
+        addVanilla(intendedToolPickAxe, "cut_red_sandstone_slab");
+        addVanilla(intendedToolPickAxe, "smooth_red_sandstone_slab");
+        addVanilla(intendedToolPickAxe, "brick_slab");
+        addVanilla(intendedToolPickAxe, "prismarine_brick_slab");
+        addVanilla(intendedToolPickAxe, "dark_prismarine_slab");
+        addVanilla(intendedToolPickAxe, "nether_brick_slab");
+        addVanilla(intendedToolPickAxe, "red_netherbrick_slab");
+        addVanilla(intendedToolPickAxe, "quartz_slab");
+        addVanilla(intendedToolPickAxe, "smooth_quartz_slab");
+        addVanilla(intendedToolPickAxe, "purpur_slab");
+        addVanilla(intendedToolPickAxe, "end_stone_brick_slab");
+        addVanilla(intendedToolPickAxe, "blackstone_slab");
+        addVanilla(intendedToolPickAxe, "polished_blackstone_slab");
+        addVanilla(intendedToolPickAxe, "polished_blackstone_brick_slab");
+        addVanilla(intendedToolPickAxe, "lightly_weathered_cut_copper_slab");
+        addVanilla(intendedToolPickAxe, "semi_weathered_cut_copper_slab");
+        addVanilla(intendedToolPickAxe, "waxed_semi_weathered_cut_copper_slab");
+        addVanilla(intendedToolPickAxe, "weathered_cut_copper_slab");
+        addVanilla(intendedToolPickAxe, "waxed_cut_copper_slab");
+        addVanilla(intendedToolPickAxe, "waxed_lightly_weathered_cut_copper_slab");
 
         //stairs (not all of these exist, just copied the above list and replaced slab with stairs)
-        intendedToolPickAxe.add("petrified_oak_stairs");
-        intendedToolPickAxe.add("stone_stairs");
-        intendedToolPickAxe.add("smooth_stone_stairs");
-        intendedToolPickAxe.add("cobblestone_stairs");
-        intendedToolPickAxe.add("mossy_cobblestone_stairs");
-        intendedToolPickAxe.add("stone_brick_stairs");
-        intendedToolPickAxe.add("mossy_stone_brick_stairs");
-        intendedToolPickAxe.add("andesite_stairs");
-        intendedToolPickAxe.add("polished_andesite_stairs");
-        intendedToolPickAxe.add("diorite_stairs");
-        intendedToolPickAxe.add("polished_diorite_stairs");
-        intendedToolPickAxe.add("granite_stairs");
-        intendedToolPickAxe.add("polished_granite_stairs");
-        intendedToolPickAxe.add("sandstone_stairs");
-        intendedToolPickAxe.add("cut_sandstone_stairs");
-        intendedToolPickAxe.add("smooth_sandstone_stairs");
-        intendedToolPickAxe.add("red_sandstone_stairs");
-        intendedToolPickAxe.add("cut_red_sandstone_stairs");
-        intendedToolPickAxe.add("smooth_red_sandstone_stairs");
-        intendedToolPickAxe.add("brick_stairs");
-        intendedToolPickAxe.add("prismarine_brick_stairs");
-        intendedToolPickAxe.add("dark_prismarine_stairs");
-        intendedToolPickAxe.add("nether_brick_stairs");
-        intendedToolPickAxe.add("red_netherbrick_stairs");
-        intendedToolPickAxe.add("quartz_stairs");
-        intendedToolPickAxe.add("smooth_quartz_stairs");
-        intendedToolPickAxe.add("purpur_stairs");
-        intendedToolPickAxe.add("end_stone_brick_stairs");
-        intendedToolPickAxe.add("blackstone_stairs");
-        intendedToolPickAxe.add("polished_blackstone_stairs");
-        intendedToolPickAxe.add("polished_blackstone_brick_stairs");
-        intendedToolPickAxe.add("lightly_weathered_cut_copper_stairs");
-        intendedToolPickAxe.add("semi_weathered_cut_copper_stairs");
-        intendedToolPickAxe.add("waxed_semi_weathered_cut_copper_stairs");
-        intendedToolPickAxe.add("weathered_cut_copper_stairs");
-        intendedToolPickAxe.add("waxed_cut_copper_stairs");
-        intendedToolPickAxe.add("waxed_lightly_weathered_cut_copper_stairs");
+        addVanilla(intendedToolPickAxe, "petrified_oak_stairs");
+        addVanilla(intendedToolPickAxe, "stone_stairs");
+        addVanilla(intendedToolPickAxe, "smooth_stone_stairs");
+        addVanilla(intendedToolPickAxe, "cobblestone_stairs");
+        addVanilla(intendedToolPickAxe, "mossy_cobblestone_stairs");
+        addVanilla(intendedToolPickAxe, "stone_brick_stairs");
+        addVanilla(intendedToolPickAxe, "mossy_stone_brick_stairs");
+        addVanilla(intendedToolPickAxe, "andesite_stairs");
+        addVanilla(intendedToolPickAxe, "polished_andesite_stairs");
+        addVanilla(intendedToolPickAxe, "diorite_stairs");
+        addVanilla(intendedToolPickAxe, "polished_diorite_stairs");
+        addVanilla(intendedToolPickAxe, "granite_stairs");
+        addVanilla(intendedToolPickAxe, "polished_granite_stairs");
+        addVanilla(intendedToolPickAxe, "sandstone_stairs");
+        addVanilla(intendedToolPickAxe, "cut_sandstone_stairs");
+        addVanilla(intendedToolPickAxe, "smooth_sandstone_stairs");
+        addVanilla(intendedToolPickAxe, "red_sandstone_stairs");
+        addVanilla(intendedToolPickAxe, "cut_red_sandstone_stairs");
+        addVanilla(intendedToolPickAxe, "smooth_red_sandstone_stairs");
+        addVanilla(intendedToolPickAxe, "brick_stairs");
+        addVanilla(intendedToolPickAxe, "prismarine_brick_stairs");
+        addVanilla(intendedToolPickAxe, "dark_prismarine_stairs");
+        addVanilla(intendedToolPickAxe, "nether_brick_stairs");
+        addVanilla(intendedToolPickAxe, "red_netherbrick_stairs");
+        addVanilla(intendedToolPickAxe, "quartz_stairs");
+        addVanilla(intendedToolPickAxe, "smooth_quartz_stairs");
+        addVanilla(intendedToolPickAxe, "purpur_stairs");
+        addVanilla(intendedToolPickAxe, "end_stone_brick_stairs");
+        addVanilla(intendedToolPickAxe, "blackstone_stairs");
+        addVanilla(intendedToolPickAxe, "polished_blackstone_stairs");
+        addVanilla(intendedToolPickAxe, "polished_blackstone_brick_stairs");
+        addVanilla(intendedToolPickAxe, "lightly_weathered_cut_copper_stairs");
+        addVanilla(intendedToolPickAxe, "semi_weathered_cut_copper_stairs");
+        addVanilla(intendedToolPickAxe, "waxed_semi_weathered_cut_copper_stairs");
+        addVanilla(intendedToolPickAxe, "weathered_cut_copper_stairs");
+        addVanilla(intendedToolPickAxe, "waxed_cut_copper_stairs");
+        addVanilla(intendedToolPickAxe, "waxed_lightly_weathered_cut_copper_stairs");
 
         //1.17 Mining (non-ores)
-        intendedToolPickAxe.add("calcite");
-        intendedToolPickAxe.add("smooth_basalt");
-        intendedToolPickAxe.add("block_of_amethyst");
-        intendedToolPickAxe.add("small_amethyst_bud");
-        intendedToolPickAxe.add("medium_amethyst_bud");
-        intendedToolPickAxe.add("large_amethyst_bud");
-        intendedToolPickAxe.add("amethyst_cluster");
-        intendedToolPickAxe.add("budding_amethyst");
-        intendedToolPickAxe.add("deepslate");
-        intendedToolPickAxe.add("cobbled_deepslate");
-        intendedToolPickAxe.add("tuff");
+        addVanilla(intendedToolPickAxe, "calcite");
+        addVanilla(intendedToolPickAxe, "smooth_basalt");
+        addVanilla(intendedToolPickAxe, "block_of_amethyst");
+        addVanilla(intendedToolPickAxe, "small_amethyst_bud");
+        addVanilla(intendedToolPickAxe, "medium_amethyst_bud");
+        addVanilla(intendedToolPickAxe, "large_amethyst_bud");
+        addVanilla(intendedToolPickAxe, "amethyst_cluster");
+        addVanilla(intendedToolPickAxe, "budding_amethyst");
+        addVanilla(intendedToolPickAxe, "deepslate");
+        addVanilla(intendedToolPickAxe, "cobbled_deepslate");
+        addVanilla(intendedToolPickAxe, "tuff");
     }
 
     private void fillArmors() {
-        fillLeatherArmorWhiteList();
-        fillIronArmorWhiteList();
-        fillChainmailWhiteList();
-        fillGoldArmorWhiteList();
-        fillDiamondArmorWhiteList();
-        fillnetheriteArmorWhiteList();
+        fillArmor(leatherArmor, "leather");
+        fillArmor(ironArmor, "iron");
+        fillArmor(chainmailArmor, "chainmail");
+        fillArmor(goldArmor, "golden");
+        fillArmor(diamondArmor, "diamond");
+        fillArmor(netheriteArmor, "netherite");
+        fillArmor(ultriteArmor, "generations_core", "ultrite");
 
-        //Add all armors to armors hashset
-        armors.addAll(leatherArmor);
-        armors.addAll(ironArmor);
-        armors.addAll(chainmailArmor);
-        armors.addAll(goldArmor);
-        armors.addAll(diamondArmor);
-        armors.addAll(netheriteArmor);
-
-        armors.add("turtle_shell");
+        addVanilla(armors, "turtle_shell");
     }
 
     private void fillEnchantables() {
@@ -449,27 +398,35 @@ public class MaterialMapStore {
         enchantables.addAll(crossbows);
         enchantables.addAll(maces);
 
-        enchantables.add("shears");
-        enchantables.add("fishing_rod");
-        enchantables.add("carrot_on_a_stick");
-        enchantables.add("enchanted_book");
-        enchantables.add("flint_and_steel");
-        enchantables.add("turtle_shell");
+        addVanilla(enchantables, "shears");
+        addVanilla(enchantables, "fishing_rod");
+        addVanilla(enchantables, "carrot_on_a_stick");
+        addVanilla(enchantables, "enchanted_book");
+        addVanilla(enchantables, "flint_and_steel");
+        addVanilla(enchantables, "turtle_shell");
+    }
+
+    private void fillTool(Set<NamespacedKey> set, String id) {
+        fillTool(set, "minecraft", id);
+    }
+
+    private void fillTool(Set<NamespacedKey> set, String namespace, String id) {
+        fillElement(set, swords, namespace, id, "sword");
+        fillElement(set, axes, namespace, id, "axe");
+        fillElement(set, hoes, namespace, id, "hoe");
+        fillElement(set, pickAxes, namespace, id, "pickaxe");
+        fillElement(set, shovels, namespace, id, "shovel");
     }
 
     private void fillTools() {
-        fillWoodToolsWhiteList();
-        fillStoneToolsWhiteList();
-        fillIronToolsWhiteList();
-        fillGoldToolsWhiteList();
-        fillDiamondToolsWhiteList();
-        fillNetheriteToolsWhiteList();
+        fillTool(woodTools, "wooden");
+        fillTool(stoneTools, "stone");
+        fillTool(ironTools, "iron");
+        fillTool(goldTools, "golden");
+        fillTool(diamondTools, "diamond");
+        fillTool(netheriteTools, "netherite");
+        fillTool(ultriteTools, "generations_core", "ultrite");
 
-        fillSwords();
-        fillAxes();
-        fillPickAxes();
-        fillHoes();
-        fillShovels();
         fillTridents();
         fillMaces();
         fillStringTools();
@@ -478,12 +435,6 @@ public class MaterialMapStore {
         fillCrossbows();
 
         //Tools collection
-        tools.addAll(woodTools);
-        tools.addAll(stoneTools);
-        tools.addAll(ironTools);
-        tools.addAll(goldTools);
-        tools.addAll(diamondTools);
-        tools.addAll(netheriteTools);
         tools.addAll(tridents);
         tools.addAll(stringTools);
         tools.addAll(bows);
@@ -492,277 +443,123 @@ public class MaterialMapStore {
     }
 
     private void fillBows() {
-        bows.add("bow");
+        addVanilla(bows, "bow");
     }
 
     private void fillCrossbows() {
-        crossbows.add("crossbow");
+        addVanilla(crossbows, "crossbow");
     }
 
     private void fillStringTools() {
-        stringTools.add("bow");
-        stringTools.add("fishing_rod");
-        stringTools.add("carrot_on_a_stick");
-        stringTools.add("crossbow");
+        addVanilla(stringTools, "bow");
+        addVanilla(stringTools, "fishing_rod");
+        addVanilla(stringTools, "carrot_on_a_stick");
+        addVanilla(stringTools, "crossbow");
     }
 
     private void fillPrismarineTools() {
-        prismarineTools.add("trident");
+        addVanilla(prismarineTools, "trident");
     }
 
     private void fillMaces() {
-        maces.add("mace");
+        addVanilla(maces, "mace");
     }
 
     private void fillTridents() {
-        tridents.add("trident");
+        addVanilla(tridents, "trident");
     }
 
-    private void fillSwords() {
-        swords.add("wood_sword");
-        swords.add("wooden_sword");
-        swords.add("stone_sword");
-        swords.add("iron_sword");
-        swords.add("gold_sword");
-        swords.add("golden_sword");
-        swords.add("diamond_sword");
-        swords.add("netherite_sword");
+    private void fillArmor(Set<NamespacedKey> set, String id) {
+        fillArmor(set, "minecraft", id);
     }
 
-    private void fillAxes() {
-        axes.add("wood_axe");
-        axes.add("wooden_axe");
-        axes.add("stone_axe");
-        axes.add("iron_axe");
-        axes.add("gold_axe");
-        axes.add("golden_axe");
-        axes.add("diamond_axe");
-        axes.add("netherite_axe");
+    private void fillArmor(Set<NamespacedKey> set, String namespace, String id) {
+        fillElement(set, armors, namespace, id, "helmet");
+        fillElement(set, armors, namespace, id, "chestplate");
+        fillElement(set, armors, namespace, id, "leggings");
+        fillElement(set, armors, namespace, id, "boots");
     }
 
-    private void fillPickAxes() {
-        pickAxes.add("wood_pickaxe");
-        pickAxes.add("wooden_pickaxe");
-        pickAxes.add("stone_pickaxe");
-        pickAxes.add("iron_pickaxe");
-        pickAxes.add("gold_pickaxe");
-        pickAxes.add("golden_pickaxe");
-        pickAxes.add("diamond_pickaxe");
-        pickAxes.add("netherite_pickaxe");
-    }
-
-    private void fillHoes() {
-        hoes.add("wood_hoe");
-        hoes.add("wooden_hoe");
-        hoes.add("stone_hoe");
-        hoes.add("iron_hoe");
-        hoes.add("gold_hoe");
-        hoes.add("golden_hoe");
-        hoes.add("diamond_hoe");
-        hoes.add("netherite_hoe");
-    }
-
-    private void fillShovels() {
-        shovels.add("wood_shovel");
-        shovels.add("wooden_shovel");
-        shovels.add("stone_shovel");
-        shovels.add("iron_shovel");
-        shovels.add("gold_shovel");
-        shovels.add("golden_shovel");
-        shovels.add("diamond_shovel");
-        shovels.add("netherite_shovel");
-    }
-
-    private void fillLeatherArmorWhiteList() {
-        leatherArmor.add("leather_helmet");
-        leatherArmor.add("leather_chestplate");
-        leatherArmor.add("leather_leggings");
-        leatherArmor.add("leather_boots");
-    }
-
-    private void fillIronArmorWhiteList() {
-        ironArmor.add("iron_helmet");
-        ironArmor.add("iron_chestplate");
-        ironArmor.add("iron_leggings");
-        ironArmor.add("iron_boots");
-    }
-
-    private void fillChainmailWhiteList() {
-        chainmailArmor.add("chainmail_helmet");
-        chainmailArmor.add("chainmail_chestplate");
-        chainmailArmor.add("chainmail_leggings");
-        chainmailArmor.add("chainmail_boots");
-    }
-
-    private void fillGoldArmorWhiteList() {
-        goldArmor.add("gold_helmet");
-        goldArmor.add("gold_chestplate");
-        goldArmor.add("gold_leggings");
-        goldArmor.add("gold_boots");
-
-        //Gold became Golden post 1.13
-        goldArmor.add("golden_helmet");
-        goldArmor.add("golden_chestplate");
-        goldArmor.add("golden_leggings");
-        goldArmor.add("golden_boots");
-    }
-
-    private void fillDiamondArmorWhiteList() {
-        diamondArmor.add("diamond_helmet");
-        diamondArmor.add("diamond_chestplate");
-        diamondArmor.add("diamond_leggings");
-        diamondArmor.add("diamond_boots");
-    }
-
-    private void fillnetheriteArmorWhiteList() {
-        netheriteArmor.add("netherite_helmet");
-        netheriteArmor.add("netherite_chestplate");
-        netheriteArmor.add("netherite_leggings");
-        netheriteArmor.add("netherite_boots");
-    }
-
-    private void fillWoodToolsWhiteList() {
-        woodTools.add("wood_sword");
-        woodTools.add("wood_axe");
-        woodTools.add("wood_hoe");
-        woodTools.add("wood_pickaxe");
-        woodTools.add("wood_shovel");
-
-        //Wood became wooden post 1.13
-        woodTools.add("wooden_sword");
-        woodTools.add("wooden_axe");
-        woodTools.add("wooden_hoe");
-        woodTools.add("wooden_pickaxe");
-        woodTools.add("wooden_shovel");
-    }
-
-    private void fillStoneToolsWhiteList() {
-        stoneTools.add("stone_sword");
-        stoneTools.add("stone_axe");
-        stoneTools.add("stone_hoe");
-        stoneTools.add("stone_pickaxe");
-        stoneTools.add("stone_shovel");
-    }
-
-    private void fillIronToolsWhiteList() {
-        ironTools.add("iron_sword");
-        ironTools.add("iron_axe");
-        ironTools.add("iron_hoe");
-        ironTools.add("iron_pickaxe");
-        ironTools.add("iron_shovel");
-
-        //Used for repair, remove in 2.2
-        //TODO: Remove in config update
-        ironTools.add("bucket");
-        ironTools.add("flint_and_steel");
-        ironTools.add("shears");
-    }
-
-    private void fillGoldToolsWhiteList() {
-        goldTools.add("gold_sword");
-        goldTools.add("gold_axe");
-        goldTools.add("gold_hoe");
-        goldTools.add("gold_pickaxe");
-        goldTools.add("gold_shovel");
-
-        //Gold became golden post 1.13
-        goldTools.add("golden_sword");
-        goldTools.add("golden_axe");
-        goldTools.add("golden_hoe");
-        goldTools.add("golden_pickaxe");
-        goldTools.add("golden_shovel");
-    }
-
-    private void fillDiamondToolsWhiteList() {
-        diamondTools.add("diamond_sword");
-        diamondTools.add("diamond_axe");
-        diamondTools.add("diamond_hoe");
-        diamondTools.add("diamond_pickaxe");
-        diamondTools.add("diamond_shovel");
-    }
-
-    private void fillNetheriteToolsWhiteList() {
-        netheriteTools.add("netherite_sword");
-        netheriteTools.add("netherite_axe");
-        netheriteTools.add("netherite_hoe");
-        netheriteTools.add("netherite_pickaxe");
-        netheriteTools.add("netherite_shovel");
+    public void fillElement(Set<NamespacedKey> primary, Set<NamespacedKey> secondary, String namespace, String id, String type) {
+        var boots = NamespacedKey.fromString(namespace + ":" + id + "_" + type);
+        primary.add(boots);
+        secondary.add(boots);
     }
 
     private void fillGlassBlockWhiteList() {
-        glassBlocks.add("glass");
-        glassBlocks.add("glass_pane");
-        glassBlocks.add("black_stained_glass");
-        glassBlocks.add("black_stained_glass_pane");
-        glassBlocks.add("blue_stained_glass");
-        glassBlocks.add("blue_stained_glass_pane");
-        glassBlocks.add("brown_stained_glass");
-        glassBlocks.add("brown_stained_glass_pane");
-        glassBlocks.add("cyan_stained_glass");
-        glassBlocks.add("cyan_stained_glass_pane");
-        glassBlocks.add("gray_stained_glass");
-        glassBlocks.add("gray_stained_glass_pane");
-        glassBlocks.add("green_stained_glass");
-        glassBlocks.add("green_stained_glass_pane");
-        glassBlocks.add("light_blue_stained_glass");
-        glassBlocks.add("light_blue_stained_glass_pane");
-        glassBlocks.add("light_gray_stained_glass");
-        glassBlocks.add("light_gray_stained_glass_pane");
-        glassBlocks.add("lime_stained_glass");
-        glassBlocks.add("lime_stained_glass_pane");
-        glassBlocks.add("magenta_stained_glass");
-        glassBlocks.add("magenta_stained_glass_pane");
-        glassBlocks.add("orange_stained_glass");
-        glassBlocks.add("orange_stained_glass_pane");
-        glassBlocks.add("pink_stained_glass");
-        glassBlocks.add("pink_stained_glass_pane");
-        glassBlocks.add("purple_stained_glass");
-        glassBlocks.add("purple_stained_glass_pane");
-        glassBlocks.add("red_stained_glass");
-        glassBlocks.add("red_stained_glass_pane");
-        glassBlocks.add("white_stained_glass");
-        glassBlocks.add("white_stained_glass_pane");
-        glassBlocks.add("yellow_stained_glass");
-        glassBlocks.add("yellow_stained_glass_pane");
+        addVanilla(glassBlocks, "glass");
+        addVanilla(glassBlocks, "glass_pane");
+        addVanilla(glassBlocks, "black_stained_glass");
+        addVanilla(glassBlocks, "black_stained_glass_pane");
+        addVanilla(glassBlocks, "blue_stained_glass");
+        addVanilla(glassBlocks, "blue_stained_glass_pane");
+        addVanilla(glassBlocks, "brown_stained_glass");
+        addVanilla(glassBlocks, "brown_stained_glass_pane");
+        addVanilla(glassBlocks, "cyan_stained_glass");
+        addVanilla(glassBlocks, "cyan_stained_glass_pane");
+        addVanilla(glassBlocks, "gray_stained_glass");
+        addVanilla(glassBlocks, "gray_stained_glass_pane");
+        addVanilla(glassBlocks, "green_stained_glass");
+        addVanilla(glassBlocks, "green_stained_glass_pane");
+        addVanilla(glassBlocks, "light_blue_stained_glass");
+        addVanilla(glassBlocks, "light_blue_stained_glass_pane");
+        addVanilla(glassBlocks, "light_gray_stained_glass");
+        addVanilla(glassBlocks, "light_gray_stained_glass_pane");
+        addVanilla(glassBlocks, "lime_stained_glass");
+        addVanilla(glassBlocks, "lime_stained_glass_pane");
+        addVanilla(glassBlocks, "magenta_stained_glass");
+        addVanilla(glassBlocks, "magenta_stained_glass_pane");
+        addVanilla(glassBlocks, "orange_stained_glass");
+        addVanilla(glassBlocks, "orange_stained_glass_pane");
+        addVanilla(glassBlocks, "pink_stained_glass");
+        addVanilla(glassBlocks, "pink_stained_glass_pane");
+        addVanilla(glassBlocks, "purple_stained_glass");
+        addVanilla(glassBlocks, "purple_stained_glass_pane");
+        addVanilla(glassBlocks, "red_stained_glass");
+        addVanilla(glassBlocks, "red_stained_glass_pane");
+        addVanilla(glassBlocks, "white_stained_glass");
+        addVanilla(glassBlocks, "white_stained_glass_pane");
+        addVanilla(glassBlocks, "yellow_stained_glass");
+        addVanilla(glassBlocks, "yellow_stained_glass_pane");
     }
 
     private void fillFoodWhiteList() {
-        foodItemWhiteList.add("apple");
-        foodItemWhiteList.add("baked_potato");
-        foodItemWhiteList.add("beetroot");
-        foodItemWhiteList.add("beetroot_soup");
-        foodItemWhiteList.add("bread");
-        foodItemWhiteList.add("cake");
-        foodItemWhiteList.add("carrot");
-        foodItemWhiteList.add("chorus_fruit");
-        foodItemWhiteList.add("cooked_chicken");
-        foodItemWhiteList.add("cooked_cod");
-        foodItemWhiteList.add("cooked_mutton");
-        foodItemWhiteList.add("cooked_porkchop");
-        foodItemWhiteList.add("cooked_rabbit");
-        foodItemWhiteList.add("cooked_salmon");
-        foodItemWhiteList.add("cookie");
-        foodItemWhiteList.add("dried_kelp");
-        foodItemWhiteList.add("golden_apple");
-        foodItemWhiteList.add("enchanted_golden_apple");
-        foodItemWhiteList.add("golden_carrot");
-        foodItemWhiteList.add("melon_slice");
-        foodItemWhiteList.add("mushroom_stew");
-        foodItemWhiteList.add("poisonous_potato");
-        foodItemWhiteList.add("potato");
-        foodItemWhiteList.add("pumpkin_pie");
-        foodItemWhiteList.add("rabbit_stew");
-        foodItemWhiteList.add("raw_beef");
-        foodItemWhiteList.add("raw_chicken");
-        foodItemWhiteList.add("raw_cod");
-        foodItemWhiteList.add("raw_mutton");
-        foodItemWhiteList.add("raw_porkchop");
-        foodItemWhiteList.add("raw_rabbit");
-        foodItemWhiteList.add("raw_salmon");
-        foodItemWhiteList.add("rotten_flesh");
-        foodItemWhiteList.add("suspicious_stew");
-        foodItemWhiteList.add("sweet_berries");
-        foodItemWhiteList.add("tropical_fish");
+        addVanilla(foodItemWhiteList, "apple");
+        addVanilla(foodItemWhiteList, "baked_potato");
+        addVanilla(foodItemWhiteList, "beetroot");
+        addVanilla(foodItemWhiteList, "beetroot_soup");
+        addVanilla(foodItemWhiteList, "bread");
+        addVanilla(foodItemWhiteList, "cake");
+        addVanilla(foodItemWhiteList, "carrot");
+        addVanilla(foodItemWhiteList, "chorus_fruit");
+        addVanilla(foodItemWhiteList, "cooked_chicken");
+        addVanilla(foodItemWhiteList, "cooked_cod");
+        addVanilla(foodItemWhiteList, "cooked_mutton");
+        addVanilla(foodItemWhiteList, "cooked_porkchop");
+        addVanilla(foodItemWhiteList, "cooked_rabbit");
+        addVanilla(foodItemWhiteList, "cooked_salmon");
+        addVanilla(foodItemWhiteList, "cookie");
+        addVanilla(foodItemWhiteList, "dried_kelp");
+        addVanilla(foodItemWhiteList, "golden_apple");
+        addVanilla(foodItemWhiteList, "enchanted_golden_apple");
+        addVanilla(foodItemWhiteList, "golden_carrot");
+        addVanilla(foodItemWhiteList, "melon_slice");
+        addVanilla(foodItemWhiteList, "mushroom_stew");
+        addVanilla(foodItemWhiteList, "poisonous_potato");
+        addVanilla(foodItemWhiteList, "potato");
+        addVanilla(foodItemWhiteList, "pumpkin_pie");
+        addVanilla(foodItemWhiteList, "rabbit_stew");
+        addVanilla(foodItemWhiteList, "raw_beef");
+        addVanilla(foodItemWhiteList, "raw_chicken");
+        addVanilla(foodItemWhiteList, "raw_cod");
+        addVanilla(foodItemWhiteList, "raw_mutton");
+        addVanilla(foodItemWhiteList, "raw_porkchop");
+        addVanilla(foodItemWhiteList, "raw_rabbit");
+        addVanilla(foodItemWhiteList, "raw_salmon");
+        addVanilla(foodItemWhiteList, "rotten_flesh");
+        addVanilla(foodItemWhiteList, "suspicious_stew");
+        addVanilla(foodItemWhiteList, "sweet_berries");
+        addVanilla(foodItemWhiteList, "tropical_fish");
     }
 
     /**
@@ -772,7 +569,7 @@ public class MaterialMapStore {
      * @return true if it is used for armor
      */
     public boolean isArmor(@NotNull Material material) {
-        return isArmor(material.getKey().getKey());
+        return isArmor(material.getKey());
     }
 
     /**
@@ -781,620 +578,511 @@ public class MaterialMapStore {
      * @param id target item id
      * @return true if the item id matches armor
      */
-    public boolean isArmor(@NotNull String id) {
+    public boolean isArmor(@NotNull NamespacedKey id) {
         return armors.contains(id);
     }
 
-    public boolean isTool(@NotNull Material material) {
-        return isTool(material.getKey().getKey());
-    }
-
-    public boolean isTool(@NotNull String id) {
+    public boolean isTool(@NotNull NamespacedKey id) {
         return tools.contains(id);
     }
 
-    public boolean isEnchantable(@NotNull Material material) {
-        return isEnchantable(material.getKey().getKey());
-    }
-
-    public boolean isEnchantable(@NotNull String id) {
+    public boolean isEnchantable(@NotNull NamespacedKey id) {
         return enchantables.contains(id);
     }
 
-    public boolean isOre(@NotNull Material material) {
-        return isOre(material.getKey().getKey());
-    }
-
-    public boolean isOre(@NotNull String id) {
+    public boolean isOre(@NotNull NamespacedKey id) {
         return ores.contains(id);
     }
 
-    public boolean isBow(@NotNull Material material) {
-        return isBow(material.getKey().getKey());
-    }
-
-    public boolean isBow(@NotNull String id) {
+    public boolean isBow(@NotNull NamespacedKey id) {
         return bows.contains(id);
     }
 
-    public boolean isCrossbow(@NotNull Material material) {
-        return isCrossbow(material.getKey().getKey());
-    }
-
-    public boolean isCrossbow(@NotNull String id) {
+    public boolean isCrossbow(@NotNull NamespacedKey id) {
         return crossbows.contains(id);
     }
 
-    public boolean isTrident(@NotNull Material material) {
-        return isTrident(material.getKey().getKey());
-    }
-
-    public boolean isTrident(@NotNull String id) {
+    public boolean isTrident(@NotNull NamespacedKey id) {
         return tridents.contains(id);
     }
 
-    public boolean isMace(@NotNull Material material) {
-        return isMace(material.getKey().getKey());
-    }
-
-    public boolean isMace(@NotNull String id) {
+    public boolean isMace(@NotNull NamespacedKey id) {
         return maces.contains(id);
     }
 
-    public boolean isLeatherArmor(@NotNull Material material) {
-        return isLeatherArmor(material.getKey().getKey());
-    }
-
-    public boolean isLeatherArmor(@NotNull String id) {
+    public boolean isLeatherArmor(@NotNull NamespacedKey id) {
         return leatherArmor.contains(id);
     }
 
-    public boolean isIronArmor(@NotNull Material material) {
-        return isIronArmor(material.getKey().getKey());
-    }
-
-    public boolean isIronArmor(@NotNull String id) {
+    public boolean isIronArmor(@NotNull NamespacedKey id) {
         return ironArmor.contains(id);
     }
 
-    public boolean isGoldArmor(@NotNull Material material) {
-        return isGoldArmor(material.getKey().getKey());
-    }
-
-    public boolean isGoldArmor(@NotNull String id) {
+    public boolean isGoldArmor(@NotNull NamespacedKey id) {
         return goldArmor.contains(id);
     }
 
-    public boolean isDiamondArmor(@NotNull Material material) {
-        return isDiamondArmor(material.getKey().getKey());
-    }
-
-    public boolean isDiamondArmor(@NotNull String id) {
+    public boolean isDiamondArmor(@NotNull NamespacedKey id) {
         return diamondArmor.contains(id);
     }
 
-    public boolean isChainmailArmor(@NotNull Material material) {
-        return isChainmailArmor(material.getKey().getKey());
-    }
-
-    public boolean isChainmailArmor(@NotNull String id) {
+    public boolean isChainmailArmor(@NotNull NamespacedKey id) {
         return chainmailArmor.contains(id);
     }
 
-    public boolean isNetheriteArmor(@NotNull Material material) {
-        return isNetheriteArmor(material.getKey().getKey());
-    }
-
-    public boolean isNetheriteArmor(@NotNull String id) {
+    public boolean isNetheriteArmor(@NotNull NamespacedKey id) {
         return netheriteArmor.contains(id);
     }
 
-    public boolean isWoodTool(@NotNull Material material) {
-        return isWoodTool(material.getKey().getKey());
-    }
-
-    public boolean isWoodTool(@NotNull String id) {
+    public boolean isWoodTool(@NotNull NamespacedKey id) {
         return woodTools.contains(id);
     }
 
-    public boolean isStoneTool(@NotNull Material material) {
-        return isStoneTool(material.getKey().getKey());
-    }
-
-    public boolean isStoneTool(@NotNull String id) {
+    public boolean isStoneTool(@NotNull NamespacedKey id) {
         return stoneTools.contains(id);
     }
 
-    public boolean isIronTool(@NotNull Material material) {
-        return isIronTool(material.getKey().getKey());
-    }
-
-    public boolean isIronTool(@NotNull String id) {
+    public boolean isIronTool(@NotNull NamespacedKey id) {
         return ironTools.contains(id);
     }
 
-    public boolean isGoldTool(@NotNull Material material) {
-        return isGoldTool(material.getKey().getKey());
-    }
-
-    public boolean isGoldTool(@NotNull String id) {
+    public boolean isGoldTool(@NotNull NamespacedKey id) {
         return goldTools.contains(id);
     }
 
-    public boolean isDiamondTool(@NotNull Material material) {
-        return isDiamondTool(material.getKey().getKey());
-    }
-
-    public boolean isDiamondTool(@NotNull String id) {
+    public boolean isDiamondTool(@NotNull NamespacedKey id) {
         return diamondTools.contains(id);
     }
 
-    public boolean isSword(@NotNull Material material) {
-        return isSword(material.getKey().getKey());
-    }
-
-    public boolean isSword(@NotNull String id) {
+    public boolean isSword(@NotNull NamespacedKey id) {
         return swords.contains(id);
     }
 
-    public boolean isAxe(@NotNull Material material) {
-        return isAxe(material.getKey().getKey());
-    }
-
-    public boolean isAxe(@NotNull String id) {
+    public boolean isAxe(@NotNull NamespacedKey id) {
         return axes.contains(id);
     }
 
-    public boolean isPickAxe(@NotNull Material material) {
-        return isPickAxe(material.getKey().getKey());
-    }
-
-    public boolean isPickAxe(@NotNull String id) {
+    public boolean isPickAxe(@NotNull NamespacedKey id) {
         return pickAxes.contains(id);
     }
 
-    public boolean isShovel(@NotNull Material material) {
-        return isShovel(material.getKey().getKey());
-    }
-
-    public boolean isShovel(@NotNull String id) {
+    public boolean isShovel(@NotNull NamespacedKey id) {
         return shovels.contains(id);
     }
 
-    public boolean isHoe(@NotNull Material material) {
-        return isHoe(material.getKey().getKey());
-    }
-
-    public boolean isHoe(@NotNull String id) {
+    public boolean isHoe(@NotNull NamespacedKey id) {
         return hoes.contains(id);
     }
 
-    public boolean isNetheriteTool(@NotNull Material material) {
-        return isNetheriteTool(material.getKey().getKey());
-    }
-
-    public boolean isNetheriteTool(@NotNull String id) {
+    public boolean isNetheriteTool(@NotNull NamespacedKey id) {
         return netheriteTools.contains(id);
     }
 
-    public boolean isStringTool(@NotNull Material material) {
-        return isStringTool(material.getKey().getKey());
-    }
-
-    public boolean isStringTool(@NotNull String id) {
+    public boolean isStringTool(@NotNull NamespacedKey id) {
         return stringTools.contains(id);
     }
 
-    public boolean isPrismarineTool(@NotNull Material material) {
-        return isPrismarineTool(material.getKey().getKey());
-    }
-
-    public boolean isPrismarineTool(@NotNull String id) {
+    public boolean isPrismarineTool(@NotNull NamespacedKey id) {
         return prismarineTools.contains(id);
     }
 
     public boolean isGlass(@NotNull Material material) {
-        return glassBlocks.contains(material.getKey().getKey());
+        return glassBlocks.contains(material.getKey());
     }
 
     public boolean isFood(@NotNull Material material) {
-        return foodItemWhiteList.contains(material.getKey().getKey());
+        return foodItemWhiteList.contains(material.getKey());
     }
 
     private void fillMultiBlockPlantSet() {
         //Multi-Block Plants
-        multiBlockPlant.add("cactus");
-        multiBlockPlant.add("cactus_flower");
-        multiBlockPlant.add("chorus_plant");
-        multiBlockPlant.add("chorus_flower");
-        multiBlockPlant.add("sugar_cane");
-        multiBlockPlant.add("kelp_plant");
-        multiBlockPlant.add("kelp");
-        multiBlockPlant.add("tall_seagrass");
-        multiBlockPlant.add("large_fern");
-        multiBlockPlant.add("tall_grass");
-        multiBlockPlant.add("bamboo");
+        addVanilla(multiBlockPlant, "cactus");
+        addVanilla(multiBlockPlant, "cactus_flower");
+        addVanilla(multiBlockPlant, "chorus_plant");
+        addVanilla(multiBlockPlant, "chorus_flower");
+        addVanilla(multiBlockPlant, "sugar_cane");
+        addVanilla(multiBlockPlant, "kelp_plant");
+        addVanilla(multiBlockPlant, "kelp");
+        addVanilla(multiBlockPlant, "tall_seagrass");
+        addVanilla(multiBlockPlant, "large_fern");
+        addVanilla(multiBlockPlant, "tall_grass");
+        addVanilla(multiBlockPlant, "bamboo");
     }
 
     private void fillMultiBlockHangingPlantSet() {
-        multiBlockHangingPlant.add("weeping_vines_plant");
-        multiBlockHangingPlant.add("twisted_vines_plant");
-        multiBlockHangingPlant.add("cave_vines_plant");
-        multiBlockHangingPlant.add("pale_hanging_moss");
+        addVanilla(multiBlockHangingPlant, "weeping_vines_plant");
+        addVanilla(multiBlockHangingPlant, "twisted_vines_plant");
+        addVanilla(multiBlockHangingPlant, "cave_vines_plant");
+        addVanilla(multiBlockHangingPlant, "pale_hanging_moss");
     }
 
     private void fillShroomyWhiteList() {
-        canMakeShroomyWhiteList.add("dirt");
-        canMakeShroomyWhiteList.add("grass_block");
-        canMakeShroomyWhiteList.add("dirt_path");
+        addVanilla(canMakeShroomyWhiteList, "dirt");
+        addVanilla(canMakeShroomyWhiteList, "grass_block");
+        addVanilla(canMakeShroomyWhiteList, "dirt_path");
     }
 
     private void fillBlockCrackerWhiteList() {
-        blockCrackerWhiteList.add("stone_bricks");
-        blockCrackerWhiteList.add("infested_stone_bricks");
+        addVanilla(blockCrackerWhiteList, "stone_bricks");
+        addVanilla(blockCrackerWhiteList, "infested_stone_bricks");
 
     }
 
     private void fillHerbalismAbilityBlackList() {
-        herbalismAbilityBlackList.add("dirt");
-        herbalismAbilityBlackList.add("grass_block");
-        herbalismAbilityBlackList.add("dirt_path");
-        herbalismAbilityBlackList.add("farmland");
+        addVanilla(herbalismAbilityBlackList, "dirt");
+        addVanilla(herbalismAbilityBlackList, "grass_block");
+        addVanilla(herbalismAbilityBlackList, "dirt_path");
+        addVanilla(herbalismAbilityBlackList, "farmland");
     }
 
     private void fillTreeFellerDestructibleWhiteList() {
-        treeFellerDestructibleWhiteList.add("pale_hanging_moss");
-        treeFellerDestructibleWhiteList.add("oak_leaves");
-        treeFellerDestructibleWhiteList.add("cherry_leaves");
-        treeFellerDestructibleWhiteList.add("acacia_leaves");
-        treeFellerDestructibleWhiteList.add("birch_leaves");
-        treeFellerDestructibleWhiteList.add("dark_oak_leaves");
-        treeFellerDestructibleWhiteList.add("pale_oak_leaves");
-        treeFellerDestructibleWhiteList.add("jungle_leaves");
-        treeFellerDestructibleWhiteList.add("spruce_leaves");
-        treeFellerDestructibleWhiteList.add("azalea_leaves");
-        treeFellerDestructibleWhiteList.add("flowering_azalea_leaves");
-        treeFellerDestructibleWhiteList.add("mangrove_leaves");
-        treeFellerDestructibleWhiteList.add("mangrove_roots");
-        treeFellerDestructibleWhiteList.add("nether_wart_block");
-        treeFellerDestructibleWhiteList.add("warped_wart_block");
-        treeFellerDestructibleWhiteList.add("brown_mushroom_block");
-        treeFellerDestructibleWhiteList.add("red_mushroom_block");
+        addVanilla(treeFellerDestructibleWhiteList, "pale_hanging_moss");
+        addVanilla(treeFellerDestructibleWhiteList, "oak_leaves");
+        addVanilla(treeFellerDestructibleWhiteList, "cherry_leaves");
+        addVanilla(treeFellerDestructibleWhiteList, "acacia_leaves");
+        addVanilla(treeFellerDestructibleWhiteList, "birch_leaves");
+        addVanilla(treeFellerDestructibleWhiteList, "dark_oak_leaves");
+        addVanilla(treeFellerDestructibleWhiteList, "pale_oak_leaves");
+        addVanilla(treeFellerDestructibleWhiteList, "jungle_leaves");
+        addVanilla(treeFellerDestructibleWhiteList, "spruce_leaves");
+        addVanilla(treeFellerDestructibleWhiteList, "azalea_leaves");
+        addVanilla(treeFellerDestructibleWhiteList, "flowering_azalea_leaves");
+        addVanilla(treeFellerDestructibleWhiteList, "mangrove_leaves");
+        addVanilla(treeFellerDestructibleWhiteList, "mangrove_roots");
+        addVanilla(treeFellerDestructibleWhiteList, "nether_wart_block");
+        addVanilla(treeFellerDestructibleWhiteList, "warped_wart_block");
+        addVanilla(treeFellerDestructibleWhiteList, "brown_mushroom_block");
+        addVanilla(treeFellerDestructibleWhiteList, "red_mushroom_block");
     }
 
     private void fillMossyWhiteList() {
-        mossyWhiteList.add("cobblestone");
-        mossyWhiteList.add("dirt");
-        mossyWhiteList.add("grass_path");
-        mossyWhiteList.add("stone_bricks");
-        mossyWhiteList.add("cobblestone_wall");
+        addVanilla(mossyWhiteList, "cobblestone");
+        addVanilla(mossyWhiteList, "dirt");
+        addVanilla(mossyWhiteList, "grass_path");
+        addVanilla(mossyWhiteList, "stone_bricks");
+        addVanilla(mossyWhiteList, "cobblestone_wall");
     }
 
     private void fillAbilityBlackList() {
-        abilityBlackList.add("warped_fence_gate");
-        abilityBlackList.add("crimson_fence_gate");
-        abilityBlackList.add("warped_pressure_plate");
-        abilityBlackList.add("crimson_pressure_plate");
-        abilityBlackList.add("warped_button");
-        abilityBlackList.add("crimson_button");
-        abilityBlackList.add("warped_door");
-        abilityBlackList.add("crimson_door");
-        abilityBlackList.add("warped_trapdoor");
-        abilityBlackList.add("crimson_trapdoor");
-        abilityBlackList.add("black_bed");
-        abilityBlackList.add("blue_bed");
-        abilityBlackList.add("brown_bed");
-        abilityBlackList.add("cyan_bed");
-        abilityBlackList.add("gray_bed");
-        abilityBlackList.add("green_bed");
-        abilityBlackList.add("light_blue_bed");
-        abilityBlackList.add("light_gray_bed");
-        abilityBlackList.add("lime_bed");
-        abilityBlackList.add("magenta_bed");
-        abilityBlackList.add("orange_bed");
-        abilityBlackList.add("pink_bed");
-        abilityBlackList.add("purple_bed");
-        abilityBlackList.add("red_bed");
-        abilityBlackList.add("white_bed");
-        abilityBlackList.add("yellow_bed");
-        abilityBlackList.add("brewing_stand");
-        abilityBlackList.add("bookshelf");
-        abilityBlackList.add("cake");
-        abilityBlackList.add("chest");
-        abilityBlackList.add("dispenser");
-        abilityBlackList.add("enchanting_table");
-        abilityBlackList.add("ender_chest");
-        abilityBlackList.add("oak_fence_gate");
-        abilityBlackList.add("acacia_fence_gate");
-        abilityBlackList.add("dark_oak_fence_gate");
-        abilityBlackList.add("pale_oak_fence_gate");
-        abilityBlackList.add("spruce_fence_gate");
-        abilityBlackList.add("birch_fence_gate");
-        abilityBlackList.add("jungle_fence_gate");
-        abilityBlackList.add("furnace");
-        abilityBlackList.add("jukebox");
-        abilityBlackList.add("lever");
-        abilityBlackList.add("note_block");
-        abilityBlackList.add("stone_button");
-        abilityBlackList.add("oak_button");
-        abilityBlackList.add("birch_button");
-        abilityBlackList.add("acacia_button");
-        abilityBlackList.add("dark_oak_button");
-        abilityBlackList.add("pale_oak_button");
-        abilityBlackList.add("jungle_button");
-        abilityBlackList.add("spruce_button");
-        abilityBlackList.add("acacia_trapdoor");
-        abilityBlackList.add("birch_trapdoor");
-        abilityBlackList.add("dark_oak_trapdoor");
-        abilityBlackList.add("pale_oak_trapdoor");
-        abilityBlackList.add("jungle_trapdoor");
-        abilityBlackList.add("oak_trapdoor");
-        abilityBlackList.add("spruce_trapdoor");
-        abilityBlackList.add("acacia_sign");
-        abilityBlackList.add("acacia_wall_sign");
-        abilityBlackList.add("birch_sign");
-        abilityBlackList.add("birch_wall_sign");
-        abilityBlackList.add("dark_oak_sign");
-        abilityBlackList.add("pale_oak_sign");
-        abilityBlackList.add("dark_oak_wall_sign");
-        abilityBlackList.add("pale_oak_wall_sign");
-        abilityBlackList.add("jungle_sign");
-        abilityBlackList.add("jungle_wall_sign");
-        abilityBlackList.add("spruce_sign");
-        abilityBlackList.add("spruce_wall_sign");
-        abilityBlackList.add("oak_sign");
-        abilityBlackList.add("oak_wall_sign");
-        abilityBlackList.add("crafting_table");
-        abilityBlackList.add("beacon");
-        abilityBlackList.add("anvil");
-        abilityBlackList.add("dropper");
-        abilityBlackList.add("hopper");
-        abilityBlackList.add("trapped_chest");
-        abilityBlackList.add("iron_door");
-        abilityBlackList.add("iron_trapdoor");
-        abilityBlackList.add("oak_door");
-        abilityBlackList.add("acacia_door");
-        abilityBlackList.add("spruce_door");
-        abilityBlackList.add("birch_door");
-        abilityBlackList.add("jungle_door");
-        abilityBlackList.add("dark_oak_door");
-        abilityBlackList.add("pale_oak_door");
-        abilityBlackList.add("oak_fence");
-        abilityBlackList.add("acacia_fence");
-        abilityBlackList.add("dark_oak_fence");
-        abilityBlackList.add("pale_oak_fence");
-        abilityBlackList.add("birch_fence");
-        abilityBlackList.add("jungle_fence");
-        abilityBlackList.add("spruce_fence");
-        abilityBlackList.add("armor_stand");
-        abilityBlackList.add("black_shulker_box");
-        abilityBlackList.add("blue_shulker_box");
-        abilityBlackList.add("brown_shulker_box");
-        abilityBlackList.add("cyan_shulker_box");
-        abilityBlackList.add("gray_shulker_box");
-        abilityBlackList.add("green_shulker_box");
-        abilityBlackList.add("light_blue_shulker_box");
-        abilityBlackList.add("lime_shulker_box");
-        abilityBlackList.add("magenta_shulker_box");
-        abilityBlackList.add("orange_shulker_box");
-        abilityBlackList.add("pink_shulker_box");
-        abilityBlackList.add("purple_shulker_box");
-        abilityBlackList.add("red_shulker_box");
-        abilityBlackList.add("light_gray_shulker_box");
-        abilityBlackList.add("white_shulker_box");
-        abilityBlackList.add("yellow_shulker_box");
-        abilityBlackList.add("shulker_box");
-        abilityBlackList.add("wall_sign"); //1.13 and lower?
-        abilityBlackList.add("sign"); //1.13 and lower?
-        abilityBlackList.add("cartography_table");
-        abilityBlackList.add("grindstone");
-        abilityBlackList.add("lectern");
-        abilityBlackList.add("loom");
-        abilityBlackList.add("scaffolding");
-        abilityBlackList.add("smoker");
-        abilityBlackList.add("stonecutter");
-        abilityBlackList.add("sweet_berry_bush");
-        abilityBlackList.add("bell");
-        abilityBlackList.add("barrel");
-        abilityBlackList.add("blast_furnace");
-        abilityBlackList.add("campfire");
-        abilityBlackList.add("soul_campfire");
-        abilityBlackList.add("composter");
-        abilityBlackList.add("lodestone");
-        abilityBlackList.add("respawn_anchor");
+        addVanilla(abilityBlackList, "warped_fence_gate");
+        addVanilla(abilityBlackList, "crimson_fence_gate");
+        addVanilla(abilityBlackList, "warped_pressure_plate");
+        addVanilla(abilityBlackList, "crimson_pressure_plate");
+        addVanilla(abilityBlackList, "warped_button");
+        addVanilla(abilityBlackList, "crimson_button");
+        addVanilla(abilityBlackList, "warped_door");
+        addVanilla(abilityBlackList, "crimson_door");
+        addVanilla(abilityBlackList, "warped_trapdoor");
+        addVanilla(abilityBlackList, "crimson_trapdoor");
+        addVanilla(abilityBlackList, "black_bed");
+        addVanilla(abilityBlackList, "blue_bed");
+        addVanilla(abilityBlackList, "brown_bed");
+        addVanilla(abilityBlackList, "cyan_bed");
+        addVanilla(abilityBlackList, "gray_bed");
+        addVanilla(abilityBlackList, "green_bed");
+        addVanilla(abilityBlackList, "light_blue_bed");
+        addVanilla(abilityBlackList, "light_gray_bed");
+        addVanilla(abilityBlackList, "lime_bed");
+        addVanilla(abilityBlackList, "magenta_bed");
+        addVanilla(abilityBlackList, "orange_bed");
+        addVanilla(abilityBlackList, "pink_bed");
+        addVanilla(abilityBlackList, "purple_bed");
+        addVanilla(abilityBlackList, "red_bed");
+        addVanilla(abilityBlackList, "white_bed");
+        addVanilla(abilityBlackList, "yellow_bed");
+        addVanilla(abilityBlackList, "brewing_stand");
+        addVanilla(abilityBlackList, "bookshelf");
+        addVanilla(abilityBlackList, "cake");
+        addVanilla(abilityBlackList, "chest");
+        addVanilla(abilityBlackList, "dispenser");
+        addVanilla(abilityBlackList, "enchanting_table");
+        addVanilla(abilityBlackList, "ender_chest");
+        addVanilla(abilityBlackList, "oak_fence_gate");
+        addVanilla(abilityBlackList, "acacia_fence_gate");
+        addVanilla(abilityBlackList, "dark_oak_fence_gate");
+        addVanilla(abilityBlackList, "pale_oak_fence_gate");
+        addVanilla(abilityBlackList, "spruce_fence_gate");
+        addVanilla(abilityBlackList, "birch_fence_gate");
+        addVanilla(abilityBlackList, "jungle_fence_gate");
+        addVanilla(abilityBlackList, "furnace");
+        addVanilla(abilityBlackList, "jukebox");
+        addVanilla(abilityBlackList, "lever");
+        addVanilla(abilityBlackList, "note_block");
+        addVanilla(abilityBlackList, "stone_button");
+        addVanilla(abilityBlackList, "oak_button");
+        addVanilla(abilityBlackList, "birch_button");
+        addVanilla(abilityBlackList, "acacia_button");
+        addVanilla(abilityBlackList, "dark_oak_button");
+        addVanilla(abilityBlackList, "pale_oak_button");
+        addVanilla(abilityBlackList, "jungle_button");
+        addVanilla(abilityBlackList, "spruce_button");
+        addVanilla(abilityBlackList, "acacia_trapdoor");
+        addVanilla(abilityBlackList, "birch_trapdoor");
+        addVanilla(abilityBlackList, "dark_oak_trapdoor");
+        addVanilla(abilityBlackList, "pale_oak_trapdoor");
+        addVanilla(abilityBlackList, "jungle_trapdoor");
+        addVanilla(abilityBlackList, "oak_trapdoor");
+        addVanilla(abilityBlackList, "spruce_trapdoor");
+        addVanilla(abilityBlackList, "acacia_sign");
+        addVanilla(abilityBlackList, "acacia_wall_sign");
+        addVanilla(abilityBlackList, "birch_sign");
+        addVanilla(abilityBlackList, "birch_wall_sign");
+        addVanilla(abilityBlackList, "dark_oak_sign");
+        addVanilla(abilityBlackList, "pale_oak_sign");
+        addVanilla(abilityBlackList, "dark_oak_wall_sign");
+        addVanilla(abilityBlackList, "pale_oak_wall_sign");
+        addVanilla(abilityBlackList, "jungle_sign");
+        addVanilla(abilityBlackList, "jungle_wall_sign");
+        addVanilla(abilityBlackList, "spruce_sign");
+        addVanilla(abilityBlackList, "spruce_wall_sign");
+        addVanilla(abilityBlackList, "oak_sign");
+        addVanilla(abilityBlackList, "oak_wall_sign");
+        addVanilla(abilityBlackList, "crafting_table");
+        addVanilla(abilityBlackList, "beacon");
+        addVanilla(abilityBlackList, "anvil");
+        addVanilla(abilityBlackList, "dropper");
+        addVanilla(abilityBlackList, "hopper");
+        addVanilla(abilityBlackList, "trapped_chest");
+        addVanilla(abilityBlackList, "iron_door");
+        addVanilla(abilityBlackList, "iron_trapdoor");
+        addVanilla(abilityBlackList, "oak_door");
+        addVanilla(abilityBlackList, "acacia_door");
+        addVanilla(abilityBlackList, "spruce_door");
+        addVanilla(abilityBlackList, "birch_door");
+        addVanilla(abilityBlackList, "jungle_door");
+        addVanilla(abilityBlackList, "dark_oak_door");
+        addVanilla(abilityBlackList, "pale_oak_door");
+        addVanilla(abilityBlackList, "oak_fence");
+        addVanilla(abilityBlackList, "acacia_fence");
+        addVanilla(abilityBlackList, "dark_oak_fence");
+        addVanilla(abilityBlackList, "pale_oak_fence");
+        addVanilla(abilityBlackList, "birch_fence");
+        addVanilla(abilityBlackList, "jungle_fence");
+        addVanilla(abilityBlackList, "spruce_fence");
+        addVanilla(abilityBlackList, "armor_stand");
+        addVanilla(abilityBlackList, "black_shulker_box");
+        addVanilla(abilityBlackList, "blue_shulker_box");
+        addVanilla(abilityBlackList, "brown_shulker_box");
+        addVanilla(abilityBlackList, "cyan_shulker_box");
+        addVanilla(abilityBlackList, "gray_shulker_box");
+        addVanilla(abilityBlackList, "green_shulker_box");
+        addVanilla(abilityBlackList, "light_blue_shulker_box");
+        addVanilla(abilityBlackList, "lime_shulker_box");
+        addVanilla(abilityBlackList, "magenta_shulker_box");
+        addVanilla(abilityBlackList, "orange_shulker_box");
+        addVanilla(abilityBlackList, "pink_shulker_box");
+        addVanilla(abilityBlackList, "purple_shulker_box");
+        addVanilla(abilityBlackList, "red_shulker_box");
+        addVanilla(abilityBlackList, "light_gray_shulker_box");
+        addVanilla(abilityBlackList, "white_shulker_box");
+        addVanilla(abilityBlackList, "yellow_shulker_box");
+        addVanilla(abilityBlackList, "shulker_box");
+        addVanilla(abilityBlackList, "wall_sign"); //1.13 and lower?
+        addVanilla(abilityBlackList, "sign"); //1.13 and lower?
+        addVanilla(abilityBlackList, "cartography_table");
+        addVanilla(abilityBlackList, "grindstone");
+        addVanilla(abilityBlackList, "lectern");
+        addVanilla(abilityBlackList, "loom");
+        addVanilla(abilityBlackList, "scaffolding");
+        addVanilla(abilityBlackList, "smoker");
+        addVanilla(abilityBlackList, "stonecutter");
+        addVanilla(abilityBlackList, "sweet_berry_bush");
+        addVanilla(abilityBlackList, "bell");
+        addVanilla(abilityBlackList, "barrel");
+        addVanilla(abilityBlackList, "blast_furnace");
+        addVanilla(abilityBlackList, "campfire");
+        addVanilla(abilityBlackList, "soul_campfire");
+        addVanilla(abilityBlackList, "composter");
+        addVanilla(abilityBlackList, "lodestone");
+        addVanilla(abilityBlackList, "respawn_anchor");
     }
 
     private void fillToolBlackList() {
-        toolBlackList.add("chiseled_bookshelf");
-        toolBlackList.add("black_bed");
-        toolBlackList.add("blue_bed");
-        toolBlackList.add("brown_bed");
-        toolBlackList.add("cyan_bed");
-        toolBlackList.add("gray_bed");
-        toolBlackList.add("green_bed");
-        toolBlackList.add("light_blue_bed");
-        toolBlackList.add("light_gray_bed");
-        toolBlackList.add("lime_bed");
-        toolBlackList.add("magenta_bed");
-        toolBlackList.add("orange_bed");
-        toolBlackList.add("pink_bed");
-        toolBlackList.add("purple_bed");
-        toolBlackList.add("red_bed");
-        toolBlackList.add("white_bed");
-        toolBlackList.add("yellow_bed");
-        toolBlackList.add("brewing_stand");
-        toolBlackList.add("bookshelf");
-        toolBlackList.add("cake");
-        toolBlackList.add("chest");
-        toolBlackList.add("dispenser");
-        toolBlackList.add("enchanting_table");
-        toolBlackList.add("ender_chest");
-        toolBlackList.add("oak_fence_gate");
-        toolBlackList.add("acacia_fence_gate");
-        toolBlackList.add("dark_oak_fence_gate");
-        toolBlackList.add("pale_oak_fence_gate");
-        toolBlackList.add("spruce_fence_gate");
-        toolBlackList.add("birch_fence_gate");
-        toolBlackList.add("jungle_fence_gate");
-        toolBlackList.add("furnace");
-        toolBlackList.add("jukebox");
-        toolBlackList.add("lever");
-        toolBlackList.add("note_block");
-        toolBlackList.add("stone_button");
-        toolBlackList.add("oak_button");
-        toolBlackList.add("birch_button");
-        toolBlackList.add("acacia_button");
-        toolBlackList.add("dark_oak_button");
-        toolBlackList.add("pale_oak_button");
-        toolBlackList.add("jungle_button");
-        toolBlackList.add("spruce_button");
-        toolBlackList.add("acacia_trapdoor");
-        toolBlackList.add("birch_trapdoor");
-        toolBlackList.add("dark_oak_trapdoor");
-        toolBlackList.add("pale_oak_trapdoor");
-        toolBlackList.add("jungle_trapdoor");
-        toolBlackList.add("oak_trapdoor");
-        toolBlackList.add("spruce_trapdoor");
-        toolBlackList.add("crafting_table");
-        toolBlackList.add("beacon");
-        toolBlackList.add("anvil");
-        toolBlackList.add("dropper");
-        toolBlackList.add("hopper");
-        toolBlackList.add("trapped_chest");
-        toolBlackList.add("iron_door");
-        toolBlackList.add("iron_trapdoor");
-        toolBlackList.add("oak_door");
-        toolBlackList.add("acacia_door");
-        toolBlackList.add("spruce_door");
-        toolBlackList.add("birch_door");
-        toolBlackList.add("jungle_door");
-        toolBlackList.add("dark_oak_door");
-        toolBlackList.add("pale_oak_door");
-        toolBlackList.add("oak_fence");
-        toolBlackList.add("acacia_fence");
-        toolBlackList.add("dark_oak_fence");
-        toolBlackList.add("pale_oak_fence");
-        toolBlackList.add("birch_fence");
-        toolBlackList.add("jungle_fence");
-        toolBlackList.add("spruce_fence");
-        toolBlackList.add("armor_stand");
-        toolBlackList.add("black_shulker_box");
-        toolBlackList.add("blue_shulker_box");
-        toolBlackList.add("brown_shulker_box");
-        toolBlackList.add("cyan_shulker_box");
-        toolBlackList.add("gray_shulker_box");
-        toolBlackList.add("green_shulker_box");
-        toolBlackList.add("light_blue_shulker_box");
-        toolBlackList.add("lime_shulker_box");
-        toolBlackList.add("magenta_shulker_box");
-        toolBlackList.add("orange_shulker_box");
-        toolBlackList.add("pink_shulker_box");
-        toolBlackList.add("purple_shulker_box");
-        toolBlackList.add("red_shulker_box");
-        toolBlackList.add("light_gray_shulker_box");
-        toolBlackList.add("white_shulker_box");
-        toolBlackList.add("yellow_shulker_box");
-        toolBlackList.add("shulker_box");
-        toolBlackList.add("acacia_sign");
-        toolBlackList.add("acacia_hanging_sign");
-        toolBlackList.add("acacia_wall_sign");
-        toolBlackList.add("birch_sign");
-        toolBlackList.add("birch_hanging_sign");
-        toolBlackList.add("birch_wall_sign");
-        toolBlackList.add("dark_oak_sign");
-        toolBlackList.add("pale_oak_sign");
-        toolBlackList.add("dark_oak_hanging_sign");
-        toolBlackList.add("pale_oak_hanging_sign");
-        toolBlackList.add("dark_oak_wall_sign");
-        toolBlackList.add("pale_oak_wall_sign");
-        toolBlackList.add("jungle_sign");
-        toolBlackList.add("jungle_hanging_sign");
-        toolBlackList.add("jungle_wall_sign");
-        toolBlackList.add("spruce_sign");
-        toolBlackList.add("spruce_hanging_sign");
-        toolBlackList.add("spruce_wall_sign");
-        toolBlackList.add("oak_sign");
-        toolBlackList.add("oak_hanging_sign");
-        toolBlackList.add("oak_wall_sign");
-        toolBlackList.add("cherry_sign");
-        toolBlackList.add("cherry_hanging_sign");
-        toolBlackList.add("cherry_wall_sign");
-        toolBlackList.add("stripped_cherry_log");
-        toolBlackList.add("stripped_cherry_wood");
-        toolBlackList.add("stripped_acacia_log");
-        toolBlackList.add("stripped_acacia_wood");
-        toolBlackList.add("stripped_birch_log");
-        toolBlackList.add("stripped_birch_wood");
-        toolBlackList.add("stripped_dark_oak_log");
-        toolBlackList.add("stripped_pale_oak_log");
-        toolBlackList.add("stripped_dark_oak_wood");
-        toolBlackList.add("stripped_pale_oak_wood");
-        toolBlackList.add("stripped_jungle_log");
-        toolBlackList.add("stripped_jungle_wood");
-        toolBlackList.add("stripped_oak_log");
-        toolBlackList.add("stripped_oak_wood");
-        toolBlackList.add("stripped_spruce_log");
-        toolBlackList.add("stripped_spruce_wood");
-        toolBlackList.add("mangrove_wood");
-        toolBlackList.add("mangrove_log");
-        toolBlackList.add("stripped_mangrove_log");
-        toolBlackList.add("acacia_log");
-        toolBlackList.add("acacia_wood");
-        toolBlackList.add("birch_log");
-        toolBlackList.add("birch_wood");
-        toolBlackList.add("dark_oak_log");
-        toolBlackList.add("pale_oak_log");
-        toolBlackList.add("dark_oak_wood");
-        toolBlackList.add("pale_oak_wood");
-        toolBlackList.add("jungle_log");
-        toolBlackList.add("jungle_wood");
-        toolBlackList.add("oak_log");
-        toolBlackList.add("oak_wood");
-        toolBlackList.add("spruce_log");
-        toolBlackList.add("bell");
-        toolBlackList.add("barrel");
-        toolBlackList.add("blast_furnace");
-        toolBlackList.add("campfire");
-        toolBlackList.add("soul_campfire");
-        toolBlackList.add("cartography_table");
-        toolBlackList.add("composter");
-        toolBlackList.add("grindstone");
-        toolBlackList.add("lectern");
-        toolBlackList.add("loom");
-        toolBlackList.add("smoker");
-        toolBlackList.add("stonecutter");
-        toolBlackList.add("lodestone");
-        toolBlackList.add("respawn_anchor");
-        toolBlackList.add("sweet_berry_bush");
-        toolBlackList.add("smithing_table");
+        addVanilla(toolBlackList, "chiseled_bookshelf");
+        addVanilla(toolBlackList, "black_bed");
+        addVanilla(toolBlackList, "blue_bed");
+        addVanilla(toolBlackList, "brown_bed");
+        addVanilla(toolBlackList, "cyan_bed");
+        addVanilla(toolBlackList, "gray_bed");
+        addVanilla(toolBlackList, "green_bed");
+        addVanilla(toolBlackList, "light_blue_bed");
+        addVanilla(toolBlackList, "light_gray_bed");
+        addVanilla(toolBlackList, "lime_bed");
+        addVanilla(toolBlackList, "magenta_bed");
+        addVanilla(toolBlackList, "orange_bed");
+        addVanilla(toolBlackList, "pink_bed");
+        addVanilla(toolBlackList, "purple_bed");
+        addVanilla(toolBlackList, "red_bed");
+        addVanilla(toolBlackList, "white_bed");
+        addVanilla(toolBlackList, "yellow_bed");
+        addVanilla(toolBlackList, "brewing_stand");
+        addVanilla(toolBlackList, "bookshelf");
+        addVanilla(toolBlackList, "cake");
+        addVanilla(toolBlackList, "chest");
+        addVanilla(toolBlackList, "dispenser");
+        addVanilla(toolBlackList, "enchanting_table");
+        addVanilla(toolBlackList, "ender_chest");
+        addVanilla(toolBlackList, "oak_fence_gate");
+        addVanilla(toolBlackList, "acacia_fence_gate");
+        addVanilla(toolBlackList, "dark_oak_fence_gate");
+        addVanilla(toolBlackList, "pale_oak_fence_gate");
+        addVanilla(toolBlackList, "spruce_fence_gate");
+        addVanilla(toolBlackList, "birch_fence_gate");
+        addVanilla(toolBlackList, "jungle_fence_gate");
+        addVanilla(toolBlackList, "furnace");
+        addVanilla(toolBlackList, "jukebox");
+        addVanilla(toolBlackList, "lever");
+        addVanilla(toolBlackList, "note_block");
+        addVanilla(toolBlackList, "stone_button");
+        addVanilla(toolBlackList, "oak_button");
+        addVanilla(toolBlackList, "birch_button");
+        addVanilla(toolBlackList, "acacia_button");
+        addVanilla(toolBlackList, "dark_oak_button");
+        addVanilla(toolBlackList, "pale_oak_button");
+        addVanilla(toolBlackList, "jungle_button");
+        addVanilla(toolBlackList, "spruce_button");
+        addVanilla(toolBlackList, "acacia_trapdoor");
+        addVanilla(toolBlackList, "birch_trapdoor");
+        addVanilla(toolBlackList, "dark_oak_trapdoor");
+        addVanilla(toolBlackList, "pale_oak_trapdoor");
+        addVanilla(toolBlackList, "jungle_trapdoor");
+        addVanilla(toolBlackList, "oak_trapdoor");
+        addVanilla(toolBlackList, "spruce_trapdoor");
+        addVanilla(toolBlackList, "crafting_table");
+        addVanilla(toolBlackList, "beacon");
+        addVanilla(toolBlackList, "anvil");
+        addVanilla(toolBlackList, "dropper");
+        addVanilla(toolBlackList, "hopper");
+        addVanilla(toolBlackList, "trapped_chest");
+        addVanilla(toolBlackList, "iron_door");
+        addVanilla(toolBlackList, "iron_trapdoor");
+        addVanilla(toolBlackList, "oak_door");
+        addVanilla(toolBlackList, "acacia_door");
+        addVanilla(toolBlackList, "spruce_door");
+        addVanilla(toolBlackList, "birch_door");
+        addVanilla(toolBlackList, "jungle_door");
+        addVanilla(toolBlackList, "dark_oak_door");
+        addVanilla(toolBlackList, "pale_oak_door");
+        addVanilla(toolBlackList, "oak_fence");
+        addVanilla(toolBlackList, "acacia_fence");
+        addVanilla(toolBlackList, "dark_oak_fence");
+        addVanilla(toolBlackList, "pale_oak_fence");
+        addVanilla(toolBlackList, "birch_fence");
+        addVanilla(toolBlackList, "jungle_fence");
+        addVanilla(toolBlackList, "spruce_fence");
+        addVanilla(toolBlackList, "armor_stand");
+        addVanilla(toolBlackList, "black_shulker_box");
+        addVanilla(toolBlackList, "blue_shulker_box");
+        addVanilla(toolBlackList, "brown_shulker_box");
+        addVanilla(toolBlackList, "cyan_shulker_box");
+        addVanilla(toolBlackList, "gray_shulker_box");
+        addVanilla(toolBlackList, "green_shulker_box");
+        addVanilla(toolBlackList, "light_blue_shulker_box");
+        addVanilla(toolBlackList, "lime_shulker_box");
+        addVanilla(toolBlackList, "magenta_shulker_box");
+        addVanilla(toolBlackList, "orange_shulker_box");
+        addVanilla(toolBlackList, "pink_shulker_box");
+        addVanilla(toolBlackList, "purple_shulker_box");
+        addVanilla(toolBlackList, "red_shulker_box");
+        addVanilla(toolBlackList, "light_gray_shulker_box");
+        addVanilla(toolBlackList, "white_shulker_box");
+        addVanilla(toolBlackList, "yellow_shulker_box");
+        addVanilla(toolBlackList, "shulker_box");
+        addVanilla(toolBlackList, "acacia_sign");
+        addVanilla(toolBlackList, "acacia_hanging_sign");
+        addVanilla(toolBlackList, "acacia_wall_sign");
+        addVanilla(toolBlackList, "birch_sign");
+        addVanilla(toolBlackList, "birch_hanging_sign");
+        addVanilla(toolBlackList, "birch_wall_sign");
+        addVanilla(toolBlackList, "dark_oak_sign");
+        addVanilla(toolBlackList, "pale_oak_sign");
+        addVanilla(toolBlackList, "dark_oak_hanging_sign");
+        addVanilla(toolBlackList, "pale_oak_hanging_sign");
+        addVanilla(toolBlackList, "dark_oak_wall_sign");
+        addVanilla(toolBlackList, "pale_oak_wall_sign");
+        addVanilla(toolBlackList, "jungle_sign");
+        addVanilla(toolBlackList, "jungle_hanging_sign");
+        addVanilla(toolBlackList, "jungle_wall_sign");
+        addVanilla(toolBlackList, "spruce_sign");
+        addVanilla(toolBlackList, "spruce_hanging_sign");
+        addVanilla(toolBlackList, "spruce_wall_sign");
+        addVanilla(toolBlackList, "oak_sign");
+        addVanilla(toolBlackList, "oak_hanging_sign");
+        addVanilla(toolBlackList, "oak_wall_sign");
+        addVanilla(toolBlackList, "cherry_sign");
+        addVanilla(toolBlackList, "cherry_hanging_sign");
+        addVanilla(toolBlackList, "cherry_wall_sign");
+        addVanilla(toolBlackList, "stripped_cherry_log");
+        addVanilla(toolBlackList, "stripped_cherry_wood");
+        addVanilla(toolBlackList, "stripped_acacia_log");
+        addVanilla(toolBlackList, "stripped_acacia_wood");
+        addVanilla(toolBlackList, "stripped_birch_log");
+        addVanilla(toolBlackList, "stripped_birch_wood");
+        addVanilla(toolBlackList, "stripped_dark_oak_log");
+        addVanilla(toolBlackList, "stripped_pale_oak_log");
+        addVanilla(toolBlackList, "stripped_dark_oak_wood");
+        addVanilla(toolBlackList, "stripped_pale_oak_wood");
+        addVanilla(toolBlackList, "stripped_jungle_log");
+        addVanilla(toolBlackList, "stripped_jungle_wood");
+        addVanilla(toolBlackList, "stripped_oak_log");
+        addVanilla(toolBlackList, "stripped_oak_wood");
+        addVanilla(toolBlackList, "stripped_spruce_log");
+        addVanilla(toolBlackList, "stripped_spruce_wood");
+        addVanilla(toolBlackList, "mangrove_wood");
+        addVanilla(toolBlackList, "mangrove_log");
+        addVanilla(toolBlackList, "stripped_mangrove_log");
+        addVanilla(toolBlackList, "acacia_log");
+        addVanilla(toolBlackList, "acacia_wood");
+        addVanilla(toolBlackList, "birch_log");
+        addVanilla(toolBlackList, "birch_wood");
+        addVanilla(toolBlackList, "dark_oak_log");
+        addVanilla(toolBlackList, "pale_oak_log");
+        addVanilla(toolBlackList, "dark_oak_wood");
+        addVanilla(toolBlackList, "pale_oak_wood");
+        addVanilla(toolBlackList, "jungle_log");
+        addVanilla(toolBlackList, "jungle_wood");
+        addVanilla(toolBlackList, "oak_log");
+        addVanilla(toolBlackList, "oak_wood");
+        addVanilla(toolBlackList, "spruce_log");
+        addVanilla(toolBlackList, "bell");
+        addVanilla(toolBlackList, "barrel");
+        addVanilla(toolBlackList, "blast_furnace");
+        addVanilla(toolBlackList, "campfire");
+        addVanilla(toolBlackList, "soul_campfire");
+        addVanilla(toolBlackList, "cartography_table");
+        addVanilla(toolBlackList, "composter");
+        addVanilla(toolBlackList, "grindstone");
+        addVanilla(toolBlackList, "lectern");
+        addVanilla(toolBlackList, "loom");
+        addVanilla(toolBlackList, "smoker");
+        addVanilla(toolBlackList, "stonecutter");
+        addVanilla(toolBlackList, "lodestone");
+        addVanilla(toolBlackList, "respawn_anchor");
+        addVanilla(toolBlackList, "sweet_berry_bush");
+        addVanilla(toolBlackList, "smithing_table");
     }
 
     public boolean isIntendedToolPickaxe(@NotNull Material material) {
         return intendedToolPickAxe.contains(material.getKey().getKey());
     }
 
-    public boolean isIntendedToolPickaxe(@NotNull String string) {
-        return intendedToolPickAxe.contains(string);
-    }
-
-    public @NotNull HashSet<String> getNetheriteArmor() {
+    public @NotNull Set<NamespacedKey> getNetheriteArmor() {
         return netheriteArmor;
     }
 
-    public @NotNull HashSet<String> getNetheriteTools() {
+    public @NotNull Set<NamespacedKey> getNetheriteTools() {
         return netheriteTools;
     }
 
-
-    public int getTier(@NotNull Material material) {
-        return getTier(material.getKey().getKey());
-    }
-
-    public int getTier(@NotNull String id) {
+    public int getTier(@NotNull NamespacedKey id) {
         return tierValue.getOrDefault(id, 1); //1 for unknown items
     }
 
-    private void addToHashSet(@NotNull String string, @NotNull HashSet<String> stringHashSet) {
-        stringHashSet.add(string.toLowerCase(Locale.ENGLISH));
+    private void addVanilla(Set<NamespacedKey> set, String name) {
+        set.add(NamespacedKey.minecraft(name));
+    }
+
+    private void add(Set<NamespacedKey> set, String name) {
+        set.add(NamespacedKey.fromString(name));
     }
 }

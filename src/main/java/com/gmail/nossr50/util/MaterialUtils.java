@@ -8,6 +8,6 @@ public final class MaterialUtils {
     }
 
     static boolean isOre(Material data) {
-        return mcMMO.getMaterialMapStore().isOre(data.getKey().getKey());
+        return mcMMO.getMaterialMapStore().isOre(data.getKey());
     }
 }

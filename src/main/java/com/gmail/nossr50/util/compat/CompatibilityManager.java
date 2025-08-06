@@ -27,8 +27,8 @@ public class CompatibilityManager {
     private final @NotNull NMSVersion nmsVersion;
 
     /* Compatibility Layers */
-    private AbstractBungeeSerializerCompatibilityLayer bungeeSerializerCompatibilityLayer;
     private AbstractMasterAnglerCompatibility masterAnglerCompatibility;
+    private AbstractBungeeSerializerCompatibilityLayer bungeeSerializerCompatibilityLayer;
 
     public CompatibilityManager(@NotNull MinecraftGameVersion minecraftGameVersion) {
         LogUtils.debug(mcMMO.p.getLogger(), "Loading compatibility layers...");

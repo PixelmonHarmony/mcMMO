@@ -110,16 +110,6 @@ public class TextUtils {
         return net.md_5.bungee.api.chat.TextComponent.fromLegacyText(displayName);
     }
 
-    public static @NotNull TextComponent ofBungeeComponents(@NotNull BaseComponent[] bungeeName) {
-        return TextComponent.ofChildren(
-                mcMMO.getCompatibilityManager().getBungeeSerializerCompatibilityLayer()
-                        .deserialize(bungeeName));
-    }
-
-    public static @NotNull TextComponent ofBungeeRawStrings(@NotNull String bungeeRawString) {
-        return ofBungeeComponents(convertToBungeeComponent(bungeeRawString));
-    }
-
     public static @NotNull TextComponent ofLegacyTextRaw(@NotNull String rawString) {
         return LegacyComponentSerializer.legacySection().deserialize(rawString);
     }

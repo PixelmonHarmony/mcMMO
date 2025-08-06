@@ -26,6 +26,7 @@ import java.util.Iterator;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Registry;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.Recipe;
@@ -346,16 +347,17 @@ public final class SkillUtils {
         return getRepairAndSalvageQuantities(item.getType(), getRepairAndSalvageItem(item));
     }
 
-    public static int getRepairAndSalvageQuantities(Material itemMaterial,
-            Material recipeMaterial) {
+    public static int getRepairAndSalvageQuantities(Material itemMaterial, Material recipeMaterial) {
         int quantity = 0;
 
-        if (mcMMO.getMaterialMapStore().isPrismarineTool(itemMaterial)) {
+        var key = itemMaterial.getKey();
+
+        if (mcMMO.getMaterialMapStore().isPrismarineTool(key)) {
             return 16;
         }
 
-        if (mcMMO.getMaterialMapStore().isNetheriteTool(itemMaterial)
-                || mcMMO.getMaterialMapStore().isNetheriteArmor(itemMaterial)) {
+
+        if (mcMMO.getMaterialMapStore().isNetheriteTool(key) || mcMMO.getMaterialMapStore().isNetheriteArmor(key)) {
             //One netherite bar requires 4 netherite scraps
             return 4;
         }

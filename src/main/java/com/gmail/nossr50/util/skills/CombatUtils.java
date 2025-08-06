@@ -788,7 +788,7 @@ public final class CombatUtils {
      * @return the armor quality of a specific Item Stack
      */
     private static int getArmorQuality(@NotNull ItemStack itemStack) {
-        return mcMMO.getMaterialMapStore().getTier(itemStack.getType().getKey().getKey());
+        return mcMMO.getMaterialMapStore().getTier(itemStack.getType().getKey());
     }
 
     /**
